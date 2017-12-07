@@ -15,7 +15,8 @@
     "server:w": "nodemon -w ./server/src -e ts -x npm run server",
     "compile:app": "au build --env prod",
     "compile:server": "tsc --project ./server/tsconfig.json",
-    "postinstall": "npm run clean && npm run compile:server && npm run compile:app"
+    "postinstall": "npm run clean && npm run compile:server && npm run compile:app",
+    "preinstall": "del-cli node_modules"
   },
   "repository": {
     "type": "git",
