@@ -1,7 +1,6 @@
 ﻿export class Home {
     audioElement: Element;
     playing: boolean;
-    readyState: boolean;
     audioLoadingProgress: number;
 
     stepCounter: number;
@@ -34,17 +33,16 @@
         });
     }
 
-    async bind() {
-        this.audioElement.muted = true;
-        this.audioElement.play();
-        await new Promise(res => setTimeout(res, 7500));
-        this.stopStepCounter();
-        this.audioElement.muted = false;
-        this.readyState = true;        
+    bind() {
+        this.audioElement.onplay = () => this.initStepCounter();
     }
 
     unbind() {
         this.stopStepCounter();
+    }
+
+    playStepCounter() {
+        this.audioElement.play();
     }
 
     stopStepCounter() {
@@ -66,7 +64,7 @@
         if(!selectedFigures.length) return;
 
         this.playing = true;
-        this.audioElement.play();
+        //this.audioElement.play();
         await new Promise(res => setTimeout(res, 1500));
         if(this.stepIntervalId) {
             clearTimeout(this.stepIntervalId);
