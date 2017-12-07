@@ -16,7 +16,8 @@
     "compile:app": "au build --env prod",
     "compile:server": "tsc --project ./server/tsconfig.json",
     "postinstall": "npm run clean && npm run compile:server && npm run compile:app",
-    "preinstall": "del-cli node_modules"
+    "preinstall": "del-cli node_modules",
+    "start": "node server/dist/index.js"
   },
   "repository": {
     "type": "git",
