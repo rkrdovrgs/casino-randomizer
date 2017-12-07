@@ -28,7 +28,7 @@
     "url": "https://github.com/rkrdovrgs/boats-api/issues"
   },
   "homepage": "https://github.com/rkrdovrgs/boats-api#readme",
-  "devDependencies": {
+  "dependencies": {
     "aurelia-testing": "^1.0.0-beta.2.0.1",
     "aurelia-tools": "^1.0.0",
     "browser-sync": "^2.13.0",
@@ -63,9 +63,7 @@
     "ts-node": "^3.1.0",
     "tslint": "^3.11.0",
     "uglify-js": "^2.6.3",
-    "vinyl-fs": "^2.4.3"
-  },
-  "dependencies": {
+    "vinyl-fs": "^2.4.3",
     "aurelia-cli": "^0.25.0",
     "@types/auth0-js": "^8.10.1",
     "@types/auth0-lock": "^10.16.1",
