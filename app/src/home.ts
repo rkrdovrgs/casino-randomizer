@@ -1,7 +1,7 @@
 ﻿export class Home {
     audioElement: Element;
     playing: boolean;
-    readyState: number;
+    readyState: boolean;
     audioLoadingProgress: number;
 
     stepCounter: number;
@@ -35,13 +35,12 @@
     }
 
     async bind() {
-        do {
-            this.readyState = this.audioElement.readyState;
-            if(this.audioElement.buffered.length>0)
-                this.audioLoadingProgress = (this.audioElement.buffered.end(0) / this.audioElement.duration) * 100;
-            
-            await new Promise(res => setTimeout(res, 500));
-        } while (this.readyState !== 4)
+        this.audioElement.muted = true;
+        this.audioElement.play();
+        await new Promise(res => setTimeout(res, 7500));
+        this.stopStepCounter();
+        this.audioElement.muted = false;
+        this.readyState = true;        
     }
 
     unbind() {
