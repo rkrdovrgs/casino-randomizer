@@ -1,0 +1,27 @@
+﻿<template>
+    <require from="home.css"></require>
+    <audio ref="audioElement">
+        <source src="/app/content/audio/audio1.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+    </audio>
+    <button click.trigger="initStepCounter()">Start</button>
+    <button click.trigger="restartStepCounter()">Restart</button>
+    <button click.trigger="stopStepCounter()">Stop</button>
+    <div>
+        <!--Start delay:
+        <input type="number" value.bind="stepStartDelay" />
+        <br/> Step interval:
+        <input type="number" value.bind="stepInterval" />
+        <br/>-->Notify on:
+        <input type="number" value.bind="stepChanger" />
+        <br/> Max number of wapeas between figures:
+        <input type="number" value.bind="maxWapeas" />
+    </div>
+    <div if.bind="!playing">
+        <b>Include:</b>
+        <div repeat.for="f of figures">
+            <input type="checkbox" checked.bind="f.selected" />${f.name}
+        </div>
+    </div>
+    <h2 if.bind="stepCounter">${stepCounterDisplay}</h2>
+    <h1 if.bind="(currentFigure.eights + 1) === figureCounter">${currentFigure.name}</h1>
+</template>

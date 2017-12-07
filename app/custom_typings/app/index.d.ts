@@ -1,0 +1,1 @@
+﻿//@note: typescript requires typeRoots to have an index.d.ts per folder

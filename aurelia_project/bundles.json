@@ -1,0 +1,164 @@
+﻿{
+  "bundles": [
+    {
+      "name": "app-bundle.js",
+      "source": [
+        "[**/*.js]",
+        "**/*.{css,html}"
+      ]
+    },
+    {
+      "name": "vendor-bundle.js",
+      "prepend": [
+        "node_modules/bluebird/js/browser/bluebird.core.js",
+        "node_modules/aurelia-cli/lib/resources/scripts/configure-bluebird.js",
+        "node_modules/requirejs/require.js"
+      ],
+      "dependencies": [
+        "aurelia-binding",
+        "aurelia-bootstrapper",
+        "aurelia-dependency-injection",
+        "aurelia-event-aggregator",
+        "aurelia-framework",
+        "aurelia-history",
+        "aurelia-history-browser",
+        "aurelia-loader",
+        "aurelia-loader-default",
+        "aurelia-logging",
+        "aurelia-logging-console",
+        "aurelia-metadata",
+        "aurelia-pal",
+        "aurelia-pal-browser",
+        "aurelia-path",
+        "aurelia-polyfills",
+        "aurelia-route-recognizer",
+        "aurelia-router",
+        "aurelia-task-queue",
+        "aurelia-templating",
+        "aurelia-templating-binding",
+        "aurelia-fetch-client",
+        "aurelia-computed",
+        "jquery",
+        "lodash",
+        "moment",
+        "redux-thunk",
+        "whatwg-fetch",
+        "toastr",
+        "shallowequal",
+        "ms-signalr-client",
+        {
+          "name": "url-search-params",
+          "path": "../../node_modules/url-search-params/build/url-search-params",
+          "exports": "URLSearchParams"
+        },
+        {
+          "name": "redux",
+          "path": "../../node_modules/redux/dist/redux"
+        },
+        {
+          "name": "redux-actions",
+          "path": "../../node_modules/redux-actions/dist/redux-actions"
+        },
+        {
+          "name": "lodash.keys",
+          "path": "../../node_modules/lodash.keys/index"
+        },
+        {
+          "name": "lodash.isarguments",
+          "path": "../../node_modules/lodash.isarguments/index"
+        },
+        {
+          "name": "lodash.isarray",
+          "path": "../../node_modules/lodash.isarray/index"
+        },
+        {
+          "name": "lodash._getnative",
+          "path": "../../node_modules/lodash._getnative/index"
+        },
+        {
+          "name": "bootstrap",
+          "path": "../../node_modules/bootstrap/dist",
+          "main": "js/bootstrap.min",
+          "deps": [
+            "jquery"
+          ],
+          "exports": "$"
+        },
+        {
+          "name": "text",
+          "path": "../../node_modules/requirejs-plugins/lib",
+          "main": "text"
+        },
+        {
+          "name": "json",
+          "path": "../../node_modules/requirejs-plugins/src/json"
+        },
+        {
+          "name": "aurelia-templating-resources",
+          "path": "../../node_modules/aurelia-templating-resources/dist/amd",
+          "main": "aurelia-templating-resources"
+        },
+        {
+          "name": "aurelia-templating-router",
+          "path": "../../node_modules/aurelia-templating-router/dist/amd",
+          "main": "aurelia-templating-router"
+        },
+        {
+          "name": "aurelia-testing",
+          "path": "../../node_modules/aurelia-testing/dist/amd",
+          "main": "aurelia-testing",
+          "env": "dev"
+        },
+        {
+          "name": "aurelia-dialog",
+          "path": "../../node_modules/aurelia-dialog/dist/amd/",
+          "main": "aurelia-dialog"
+        },
+        {
+          "name": "aurelia-dialog-styles",
+          "path": "../../node_modules/aurelia-dialog/styles/output.css"
+        },
+        {
+          "name": "auth0Lock",
+          "path": "../libs/vendors/auth0/auth0.lock.min"
+        },
+        {
+          "name": "auth0-js",
+          "path": "../../node_modules/auth0-js/build/auth0.min"
+        },
+        {
+          "name": "aurelia-auth",
+          "path": "../../node_modules/aurelia-auth/dist/amd",
+          "main": "aurelia-auth"
+        },
+        {
+          "name": "toastr",
+          "path": "../../node_modules/toastr",
+          "main": "toastr",
+          "resources": [
+            "build/toastr.min.css"
+          ],
+          "deps": [
+            "jquery"
+          ]
+        },
+        {
+          "name": "alertifyjs",
+          "path": "../../node_modules/alertifyjs/build",
+          "main": "alertify",
+          "resources": [
+            "css/alertify.css"
+          ]
+        },
+        {
+          "name": "core-decorators",
+          "path": "../../node_modules/core-decorators/lib",
+          "main": "core-decorators",
+          "resources": [
+            "*.js"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+    "ignore": [
+        "app/**/*",
+        "aurelia_project/**/*",
+        "README.md"
+    ]
+}

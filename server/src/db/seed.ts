@@ -1,0 +1,13 @@
+import { connection } from "./connection";
+
+var data = require("./data.json");
+var db = connection(...Object.keys(data));
+
+export function sync(force = true) {
+    if (!force) { return; }
+    Object.keys(data).forEach(collectionName => {
+        db[collectionName].drop(() =>
+            db[collectionName].insert(data[collectionName])
+        );
+    });
+}

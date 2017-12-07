@@ -1,0 +1,90 @@
+{
+  "name": "public",
+  "type": "project:application",
+  "platform": {
+    "id": "web",
+    "displayName": "Web",
+    "output": "app/dist",
+    "index": "index.html"
+  },
+  "transpiler": {
+    "id": "typescript",
+    "displayName": "TypeScript",
+    "fileExtension": ".ts",
+    "dtsSource": [
+      "./node_modules/@types/*/*.d.ts",
+      "./custom_typings/**/*.d.ts"
+    ],
+    "source": "app/src/**/*.ts"
+  },
+  "markupProcessor": {
+    "id": "none",
+    "displayName": "None",
+    "fileExtension": ".html",
+    "source": "app/src/**/*.html"
+  },
+  "cssProcessor": {
+    "id": "less",
+    "displayName": "Less",
+    "fileExtension": ".less",
+    "source": [
+      "app/src/**/*.less",
+      "app/content/less/components/*.less"
+    ],
+    "dependencies": [
+      "content/less/*.less"
+    ]
+  },
+  "editor": {
+    "id": "vscode",
+    "displayName": "Visual Studio Code"
+  },
+  "unitTestRunner": {
+    "id": "karma",
+    "displayName": "Karma",
+    "source": "test/**/*.ts"
+  },
+  "paths": {
+    "root": "app/src",
+    "resources": "app/src/resources",
+    "elements": "app/src/resources/elements",
+    "attributes": "app/src/resources/attributes",
+    "valueConverters": "app/src/resources/value-converters",
+    "bindingBehaviors": "app/src/resources/binding-behaviors",
+    "tests": "app/test/unit"
+  },
+  "testFramework": {
+    "id": "jasmine",
+    "displayName": "Jasmine"
+  },
+  "build": {
+    "targets": [
+      {
+        "id": "web",
+        "displayName": "Web",
+        "output": "app/dist",
+        "useAbsolutePath": true,
+        "index": "app/index.html"
+      }
+    ],
+    "loader": {
+      "type": "require",
+      "configTarget": "vendor-bundle.js",
+      "includeBundleMetadataInConfig": "auto",
+      "plugins": [
+        {
+          "name": "text",
+          "extensions": [
+            ".html",
+            ".css"
+          ],
+          "stub": true
+        }
+      ]
+    },
+    "options": {
+      "minify": "stage & prod",
+      "sourcemaps": "dev & stage"
+    }
+  }
+}
