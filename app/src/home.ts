@@ -56,7 +56,7 @@
 
     restartStepCounter() {
         this.stopStepCounter();
-        this.initStepCounter();
+        this.playStepCounter();
     }
  
     async initStepCounter() {
