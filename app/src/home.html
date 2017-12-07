@@ -1,11 +1,16 @@
 ﻿<template>
     <require from="home.css"></require>
-    <audio ref="audioElement">
+    <audio ref="audioElement" preload>
         <source src="/app/content/audio/audio1.mp3" type="audio/mpeg"> Your browser does not support the audio element.
     </audio>
-    <button click.trigger="initStepCounter()">Start</button>
-    <button click.trigger="restartStepCounter()">Restart</button>
-    <button click.trigger="stopStepCounter()">Stop</button>
+    <div if.bind="readyState === 4">
+        <button click.trigger="initStepCounter()">Start</button>
+        <button click.trigger="restartStepCounter()">Restart</button>
+        <button click.trigger="stopStepCounter()">Stop</button>
+    </div>
+    <div if.bind="readyState !== 4">
+        Please wait for audio to load (${audioLoadingProgress}%)
+    </div>
     <div>
         <!--Start delay:
         <input type="number" value.bind="stepStartDelay" />

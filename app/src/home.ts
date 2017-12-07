@@ -1,6 +1,8 @@
 ﻿export class Home {
     audioElement: Element;
     playing: boolean;
+    readyState: number;
+    audioLoadingProgress: number;
 
     stepCounter: number;
     stepCounterDisplay: string;
@@ -8,8 +10,6 @@
     stepInterval: number = 353.75;
     stepIntervalId: number;
     stepStartDelay: number = 1600;
-    songLenght: number = (((5 * 60) + 13) * 1000) - this.stepStartDelay;
-    eights: number = this.songLenght / 8; 
     currentFigure;
     figureCounter:number = 0;
     maxWapeas: number = 3;
@@ -32,6 +32,16 @@
         this.figures.forEach(f => {
             f.selected = true;
         });
+    }
+
+    async bind() {
+        do {
+            this.readyState = this.audioElement.readyState;
+            if(this.audioElement.buffered.length>0)
+                this.audioLoadingProgress = (this.audioElement.buffered.end(0) / this.audioElement.duration) * 100;
+            
+            await new Promise(res => setTimeout(res, 500));
+        } while (this.readyState !== 4)
     }
 
     unbind() {
