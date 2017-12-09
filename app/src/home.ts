@@ -35,15 +35,15 @@
         });
     }
 
-    bind() {
+    async bind() {
         this.audioElement.onplay = () => {
+            this.playing = true;
             let playIntervalId = setInterval(() => {
                 if(this.audioElement.currentTime >= (this.stepStartDelay / 1000)) {
                     clearInterval(playIntervalId);
                     this.initStepCounter();
                 }
             }, 10);
-            this.initStepCounter();
         };
     }
 
@@ -71,11 +71,12 @@
  
     initStepCounter() {
         let selectedFigures = this.figures.filter(f => f.selected);
-        if(!selectedFigures.length) return;
+        if(!selectedFigures.length)  {
+            playing = false;
+            return;
+        }
 
-        this.playing = true;
-        ////this.audioElement.play();
-        //await new Promise(res => setTimeout(res, 1500));
+        
         if(this.stepIntervalId) {
             clearTimeout(this.stepIntervalId);
         }
