@@ -24,7 +24,9 @@
         {name: "montana", eights: 4},
         {name: "el dedo", eights: 4},
         {name: "adios con hermana", eights: 3},
-        {name: "setenta", eights: 4}
+        {name: "setenta", eights: 4},
+        {name: "vacilala", eights: 2},
+        {name: "festival", eights: 3},
     ];
 
     activate() {
@@ -41,7 +43,7 @@
         this.stopStepCounter();
     }
 
-    playStepCounter() {
+    playStepCounter() {        
         this.audioElement.play();
     }
 
@@ -86,16 +88,17 @@
                     break;
             }
 
-            if(this.stepCounter === this.stepChanger) {
-                if(this.figureCounter <= 0) {
+            if(this.stepCounter === parseInt(this.stepChanger, 10)) {
+                //<=1 or <=0
+                if(this.figureCounter <= 1) {
                     let randomFigureIndex = this.generateRandom(selectedFigures.length) - 1,
-                        randomWapeas = this.generateRandom(this.maxWapeas);
+                        randomWapeas = this.generateRandom(parseInt(this.maxWapeas, 10));
 
                     this.currentFigure = selectedFigures[randomFigureIndex];
                     this.figureCounter = this.currentFigure.eights + randomWapeas;
                 } else {
                     this.figureCounter -= 1;
-                }
+                }                
             }
 
         }, this.stepInterval)
