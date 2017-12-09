@@ -36,7 +36,15 @@
     }
 
     bind() {
-        this.audioElement.onplay = () => this.initStepCounter();
+        this.audioElement.onplay = () => {
+            let playIntervalId = setInterval(() => {
+                if(this.audioElement.currentTime >= (this.stepStartDelay / 1000)) {
+                    clearInterval(playIntervalId);
+                    this.initStepCounter();
+                }
+            }, 10);
+            this.initStepCounter();
+        };
     }
 
     unbind() {
@@ -61,13 +69,13 @@
         this.playStepCounter();
     }
  
-    async initStepCounter() {
+    initStepCounter() {
         let selectedFigures = this.figures.filter(f => f.selected);
         if(!selectedFigures.length) return;
 
         this.playing = true;
-        //this.audioElement.play();
-        await new Promise(res => setTimeout(res, 1500));
+        ////this.audioElement.play();
+        //await new Promise(res => setTimeout(res, 1500));
         if(this.stepIntervalId) {
             clearTimeout(this.stepIntervalId);
         }
