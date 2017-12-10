@@ -19,7 +19,7 @@
 
     //admin
     {
-        route: "admin/songs",
+        route: ["admin", "admin/songs"],
         moduleId: "admin/songs/songs",
         title: "Songs",
         auth: false,
@@ -40,7 +40,7 @@
         title: "Song Details",
         auth: false,
         name: "admin-song-details",
-        elementId: "admin-song-create"
+        elementId: "admin-song-details"
     },
     {
         route: "admin/figures",

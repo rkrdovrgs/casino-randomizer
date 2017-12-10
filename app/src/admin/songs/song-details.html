@@ -1,18 +1,30 @@
 <template>
     <require from="admin/songs/song-details.css"></require>
     <h1>Song Detials</h1>
-    <div>
-        Name:
-        <input type="text" value.bind="song.name" />
-        <br/> Start delay:
-        <input type="number" value.bind="song.startDelay|number" />
-        <br/> Step interval:
-        <input type="number" value.bind="song.eigthInterval|number" />
+    <hr/>
+    <div class="row">
+        <div class="col-xs-12">
+            <label>Name:</label>
+            <input type="text" value.bind="song.name" />
+        </div>
+        <div class="col-sm-6">
+            <label>Start delay:</label>
+            <input type="number" value.bind="song.startDelay|number" />
+        </div>
+        <div class="col-sm-6">
+            <label>Step interval:</label>
+            <input type="number" value.bind="song.eigthInterval|number" />
+        </div>
     </div>
+    <hr/>
     <div>
         <input type="file" files.bind="song.audio.content" />
     </div>
+    <hr/>
     <div>
-        <button click.trigger="saveSong()">Save</button>
+        <button click.trigger="saveSong()">
+            <i class="fa fa-save"></i>
+            Save
+        </button>
     </div>
 </template>
