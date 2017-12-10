@@ -35,21 +35,7 @@ export class DanceAlong {
         this.figures = await this.db.figures.find();
 
         this.stepInterval = this.song.eigthInterval / 8;
-
-        // get from localstorage
-        let settings: IDanceAlongSettings =
-            Object.assign(<IDanceAlongSettings>{
-                maxWapeas: 2,
-                stepChanger: 4,
-                selectedFigures: this.figures.map(f => f._id)
-            }, JSON.parse(localStorage.getItem("settings")));
-
-        this.maxWapeas = settings.maxWapeas;
-        this.stepChanger = settings.stepChanger;
-
-        this.figures.forEach(f => {
-            f.selected = settings.selectedFigures.includes(f._id);
-        });
+        this.setSettings();
     }
 
     async bind() {
@@ -135,6 +121,23 @@ export class DanceAlong {
         return Math.floor(Math.random() * max) + 1
     }
 
+    setSettings() {
+        // get from localstorage
+        let settings: IDanceAlongSettings =
+            Object.assign(<IDanceAlongSettings>{
+                maxWapeas: 2,
+                stepChanger: 4,
+                selectedFigures: this.figures.map(f => f._id)
+            }, JSON.parse(localStorage.getItem("settings")));
+
+        this.maxWapeas = settings.maxWapeas;
+        this.stepChanger = settings.stepChanger;
+
+        this.figures.forEach(f => {
+            f.selected = settings.selectedFigures.includes(f._id);
+        });
+    }
+
     updateSettings() {
         let settings: IDanceAlongSettings = {
             maxWapeas: this.maxWapeas,
@@ -142,6 +145,11 @@ export class DanceAlong {
             selectedFigures: this.figures.filter(f => f.selected).map(f => f._id)
         };
         localStorage.setItem(settingsKey, JSON.stringify(settings));
+    }
+
+    resetSettings() {
+        localStorage.removeItem(settingsKey);
+        this.setSettings();
     }
 
 

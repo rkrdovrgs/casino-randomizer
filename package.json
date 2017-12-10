@@ -14,7 +14,7 @@
     "server": "ts-node --project ./server/tsconfig.json ./server/src",
     "server:w": "nodemon -w ./server/src -e ts -x npm run server",
     "compile:app": "au build --env prod",
-    "compile:server": "tsc --project ./server/tsconfig.json",
+    "compile:server": "tsc --project ./server/tsconfig.json && cpx \"server/src/**/*.json\" server/dist",
     "postinstall": "npm run clean && npm run compile:server && npm run compile:app",
     "start": "node server/dist/index.js"
   },
