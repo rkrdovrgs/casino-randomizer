@@ -25,22 +25,25 @@ router.post("/api/files", upload.array("files"), (req, res) => {
         });
 });
 
-router.get("/api/files/:filename", (req, res) => {
-    db.files.findOne({ filename: req.params.filename }, (err, file) => {
-        if (!!file) {
-            try {
-                res.contentType(file.mimetype);
-                res.sendFile(path.resolve(file.path));
-            } catch (e) {
-                res.status(404);
-                res.json(e);
-            }
-        } else {
-            res.status(404);
-            res.end();
-        }
-    });
-});
+router.use("/api/files", express.static(path.join(__dirname, "../../../__files__")));
+
+
+// router.get("/api/files/:filename", (req, res) => {
+//     db.files.findOne({ filename: req.params.filename }, (err, file) => {
+//         if (!!file) {
+//             try {
+//                 res.contentType(file.mimetype);
+//                 res.sendFile(path.resolve(file.path));
+//             } catch (e) {
+//                 res.status(404);
+//                 res.json(e);
+//             }
+//         } else {
+//             res.status(404);
+//             res.end();
+//         }
+//     });
+// });
 
 router.delete("/api/files/:filename", upload.array("files"), (req, res) => {
     fs.unlinkSync(path.resolve(`${fileRootPath}/${req.params.filename}`));
