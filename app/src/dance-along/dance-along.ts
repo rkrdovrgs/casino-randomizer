@@ -28,7 +28,7 @@ export class DanceAlong {
     figures: IFigure[] = [];
     song: ISong;
 
-    voices: SpeechSynthesisVoice[];
+    voice: SpeechSynthesisVoice;
 
 
     constructor(private db: DbService) { }
@@ -41,10 +41,14 @@ export class DanceAlong {
         this.setSettings();
 
 
-        this.voices = await new Promise<SpeechSynthesisVoice[]>(res => {
+        let voices = await new Promise<SpeechSynthesisVoice[]>(res => {
             speechSynthesis.getVoices();
             setTimeout(() => res(speechSynthesis.getVoices()), 1000)
         });
+
+        console.log(voices);
+
+        this.voice = voices.find(v => ["es-es", "es-us"].includes(v.lang.toLocaleLowerCase()));
     }
 
     bind() {
@@ -187,7 +191,7 @@ export class DanceAlong {
 
     readOutloud(text: string) {
         let utterance = new SpeechSynthesisUtterance();
-        utterance.voice = this.voices[4];
+        utterance.voice = this.voice;
         utterance.text = text;
         utterance.rate = 1.25;
         utterance.volume = 1;
