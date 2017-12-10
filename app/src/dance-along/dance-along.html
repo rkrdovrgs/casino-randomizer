@@ -44,6 +44,8 @@
         <b>Include:</b>
         <div class="row">
             <div repeat.for="f of figures" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                <input class="figure-stats" type="number" value.bind="f.stats|number" disabled.bind="!f.selected" change.trigger="updateSettings()"
+                />
                 <label>
                     <input type="checkbox" checked.bind="f.selected" change.trigger="updateSettings()" />${f.name}
                 </label>

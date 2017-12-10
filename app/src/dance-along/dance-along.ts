@@ -1,9 +1,10 @@
 ﻿import { inject } from "aurelia-framework";
 import { DbService } from "dataservices/db-service";
+import * as _ from "lodash";
 
 const settingsKey: string = "settings";
 interface IDanceAlongSettings {
-    selectedFigures: string[];
+    selectedFigures: { [fiigureName: string]: number };
     stepChanger: number;
     maxWapeas: number;
 }
@@ -73,7 +74,13 @@ export class DanceAlong {
     }
 
     initStepCounter() {
-        let selectedFigures = this.figures.filter(f => f.selected);
+        let selectedFigures = _(this.figures)
+            .filter(f => f.selected)
+            .flatMap(f => Array(f.stats).fill(f))
+            .value();
+
+        console.log(selectedFigures);
+
         if (!selectedFigures.length) {
             this.playing = false;
             return;
@@ -121,35 +128,49 @@ export class DanceAlong {
         return Math.floor(Math.random() * max) + 1
     }
 
-    setSettings() {
+    setSettings(reset = false) {
         // get from localstorage
         let settings: IDanceAlongSettings =
             Object.assign(<IDanceAlongSettings>{
                 maxWapeas: 2,
                 stepChanger: 4,
-                selectedFigures: this.figures.map(f => f._id)
+                selectedFigures: _(this.figures).keyBy(x => x.name)
+                    .mapValues(x => reset ? 1 : (x.stats || 1))
+                    .value()
             }, JSON.parse(localStorage.getItem("settings")));
 
         this.maxWapeas = settings.maxWapeas;
         this.stepChanger = settings.stepChanger;
 
         this.figures.forEach(f => {
-            f.selected = settings.selectedFigures.includes(f._id);
+            f.selected = !!settings.selectedFigures[f.name];
+            f.stats = settings.selectedFigures[f.name] || 0;
         });
     }
 
     updateSettings() {
+        this.figures.forEach(f => {
+            if (f.selected) {
+                f.stats = !f.stats || f.stats <= 0 ? 1 : f.stats;
+            } else {
+                f.stats = 0;
+            }
+        });
+
         let settings: IDanceAlongSettings = {
             maxWapeas: this.maxWapeas,
             stepChanger: this.stepChanger,
-            selectedFigures: this.figures.filter(f => f.selected).map(f => f._id)
+            selectedFigures: _(this.figures).filter(x => x.selected)
+                .keyBy(x => x.name)
+                .mapValues(x => x.stats || 1)
+                .value()
         };
         localStorage.setItem(settingsKey, JSON.stringify(settings));
     }
 
     resetSettings() {
         localStorage.removeItem(settingsKey);
-        this.setSettings();
+        this.setSettings(true);
     }
 
 
