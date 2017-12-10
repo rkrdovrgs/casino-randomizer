@@ -1,9 +1,13 @@
 export class NumberValueConverter {
   fromView(value: string) {
+    let r: number;
     if (!!value && value.indexOf(".")) {
-      return parseFloat(value);
+      r = parseFloat(value);
+    } else {
+      r = parseInt(value, 10);
     }
-    return parseInt(value, 10);
+
+    return !!r || r === 0 ? r : null;
   }
 }
 

@@ -27,12 +27,11 @@ export class SongDetails {
         }
 
         if (!this.song._id) {
-            await this.db.songs.insert(this.song);
+            let s = await this.db.songs.insert(this.song);
+            this.router.navigateToRoute("admin-song-details", { songId: s._id });
         } else {
             await this.db.songs.updateById(this.song._id, this.song);
         }
-
-        this.router.navigateToRoute("admin-songs");
     }
 }
 

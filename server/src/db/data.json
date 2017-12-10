@@ -15,6 +15,70 @@
                 "size": 7518387,
                 "_id": "5a2c8b47e96ef930a9121e15"
             }
+        },
+        {
+            "name": "DLG - No Morira",
+            "eigthInterval": 2925,
+            "startDelay": 12000,
+            "audio": {
+                "fieldname": "files",
+                "originalname": "No Morirá - DLG.mp3",
+                "encoding": "7bit",
+                "mimetype": "audio/mp3",
+                "destination": "__files__/",
+                "filename": "39cb85c10dd0aaf7efea5b9d68c96ce2",
+                "path": "__files__/39cb85c10dd0aaf7efea5b9d68c96ce2",
+                "size": 6536601,
+                "_id": "5a2cb1c1796d5d52a16955cd"
+            }
+        },
+        {
+            "name": "DLG - Muevete",
+            "eigthInterval": 2510,
+            "startDelay": 5327,
+            "audio": {
+                "fieldname": "files",
+                "originalname": "Muévete - DLG.mp3",
+                "encoding": "7bit",
+                "mimetype": "audio/mp3",
+                "destination": "__files__/",
+                "filename": "90779f00c444ebc87d4699ffc3ccd24a",
+                "path": "__files__/90779f00c444ebc87d4699ffc3ccd24a",
+                "size": 6756657,
+                "_id": "5a2cb1d3796d5d52a16955cf"
+            }
+        },
+        {
+            "name": "DLG - Acuyuye",
+            "eigthInterval": 2240,
+            "startDelay": 7000,
+            "audio": {
+                "fieldname": "files",
+                "originalname": "DLG - acuyuye.wmv.mp3",
+                "encoding": "7bit",
+                "mimetype": "audio/mp3",
+                "destination": "__files__/",
+                "filename": "fa8191f8b1d6ef40344a62eb893f9c62",
+                "path": "__files__/fa8191f8b1d6ef40344a62eb893f9c62",
+                "size": 7203664,
+                "_id": "5a2cb1e0796d5d52a16955d1"
+            }
+        },
+        {
+            "name": "Salsa Cubana - Abre que voy",
+            "eigthInterval": 2450,
+            "startDelay": 5058,
+            "audio": {
+                "fieldname": "files",
+                "originalname": "Salsa Abre Que Voy[Mimp3.TV].mp3",
+                "encoding": "7bit",
+                "mimetype": "audio/mp3",
+                "destination": "__files__/",
+                "filename": "f57dcb3e854a7c1be76a35b04d4c983f",
+                "path": "__files__/f57dcb3e854a7c1be76a35b04d4c983f",
+                "size": 10494986,
+                "_id": "5a2cb2cd796d5d52a16955d3"
+            }
         }
     ],
     "files": [
@@ -27,6 +91,50 @@
             "filename": "bfc7f19d041ee7c77739ff7119dcfdff",
             "path": "__files__/bfc7f19d041ee7c77739ff7119dcfdff",
             "size": 7518387
+        },
+        {
+            "fieldname": "files",
+            "originalname": "No Morirá - DLG.mp3",
+            "encoding": "7bit",
+            "mimetype": "audio/mp3",
+            "destination": "__files__/",
+            "filename": "39cb85c10dd0aaf7efea5b9d68c96ce2",
+            "path": "__files__/39cb85c10dd0aaf7efea5b9d68c96ce2",
+            "size": 6536601,
+            "_id": "5a2cb1c1796d5d52a16955cd"
+        },
+        {
+            "fieldname": "files",
+            "originalname": "Muévete - DLG.mp3",
+            "encoding": "7bit",
+            "mimetype": "audio/mp3",
+            "destination": "__files__/",
+            "filename": "90779f00c444ebc87d4699ffc3ccd24a",
+            "path": "__files__/90779f00c444ebc87d4699ffc3ccd24a",
+            "size": 6756657,
+            "_id": "5a2cb1d3796d5d52a16955cf"
+        },
+        {
+            "fieldname": "files",
+            "originalname": "DLG - acuyuye.wmv.mp3",
+            "encoding": "7bit",
+            "mimetype": "audio/mp3",
+            "destination": "__files__/",
+            "filename": "fa8191f8b1d6ef40344a62eb893f9c62",
+            "path": "__files__/fa8191f8b1d6ef40344a62eb893f9c62",
+            "size": 7203664,
+            "_id": "5a2cb1e0796d5d52a16955d1"
+        },
+        {
+            "fieldname": "files",
+            "originalname": "Salsa Abre Que Voy[Mimp3.TV].mp3",
+            "encoding": "7bit",
+            "mimetype": "audio/mp3",
+            "destination": "__files__/",
+            "filename": "f57dcb3e854a7c1be76a35b04d4c983f",
+            "path": "__files__/f57dcb3e854a7c1be76a35b04d4c983f",
+            "size": 10494986,
+            "_id": "5a2cb2cd796d5d52a16955d3"
         }
     ],
     "figures": [
