@@ -11,6 +11,7 @@ var app = express();
 app.use(cors());
 
 app.use("/app/dist", express.static(path.join(__dirname, "../../app/dist")));
+app.use("/api/files", express.static(path.join(__dirname, "../../__files__")));
 
 
 //Body parser MW

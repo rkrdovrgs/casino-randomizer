@@ -25,9 +25,6 @@ router.post("/api/files", upload.array("files"), (req, res) => {
         });
 });
 
-router.use("/api/files", express.static(path.join(__dirname, "../../../__files__")));
-
-
 // router.get("/api/files/:filename", (req, res) => {
 //     db.files.findOne({ filename: req.params.filename }, (err, file) => {
 //         if (!!file) {
