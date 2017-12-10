@@ -28,6 +28,8 @@ export class DanceAlong {
     figures: IFigure[] = [];
     song: ISong;
 
+    voices: SpeechSynthesisVoice[];
+
 
     constructor(private db: DbService) { }
 
@@ -37,9 +39,15 @@ export class DanceAlong {
 
         this.stepInterval = this.song.eigthInterval / 8;
         this.setSettings();
+
+
+        this.voices = await new Promise<SpeechSynthesisVoice[]>(res => {
+            speechSynthesis.getVoices();
+            setTimeout(() => res(speechSynthesis.getVoices()), 1000)
+        });
     }
 
-    async bind() {
+    bind() {
         this.audioElement.onplay = () => {
             this.playing = true;
             let playIntervalId = setInterval(() => {
@@ -57,6 +65,7 @@ export class DanceAlong {
 
     playStepCounter() {
         this.audioElement.play();
+        this.audioElement.volume = 0.25;
     }
 
     stopStepCounter() {
@@ -78,8 +87,6 @@ export class DanceAlong {
             .filter(f => f.selected)
             .flatMap(f => Array(f.stats).fill(f))
             .value();
-
-        console.log(selectedFigures);
 
         if (!selectedFigures.length) {
             this.playing = false;
@@ -115,8 +122,13 @@ export class DanceAlong {
 
                     this.currentFigure = selectedFigures[randomFigureIndex];
                     this.figureCounter = this.currentFigure.eights + randomWapeas;
+
                 } else {
                     this.figureCounter -= 1;
+                }
+
+                if (!!this.currentFigure && (this.currentFigure.eights + 1) === this.figureCounter) {
+                    this.readOutloud(this.currentFigure.name);
                 }
             }
 
@@ -171,6 +183,15 @@ export class DanceAlong {
     resetSettings() {
         localStorage.removeItem(settingsKey);
         this.setSettings(true);
+    }
+
+    readOutloud(text: string) {
+        let utterance = new SpeechSynthesisUtterance();
+        utterance.voice = this.voices[4];
+        utterance.text = text;
+        utterance.rate = 1.25;
+        utterance.volume = 1;
+        speechSynthesis.speak(utterance);
     }
 
 
