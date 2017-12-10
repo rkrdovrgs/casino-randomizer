@@ -8,11 +8,33 @@
     <audio ref="audioElement" preload="auto">
         <source src="/api/files/${song.audio.filename}" type="audio/mpeg"> Your browser does not support the audio element.
     </audio>
+    <div class="display-container">
+        <div>
+            <button class="btn btn-primary" click.trigger="playStepCounter()">
+                <i class="fa fa-play"></i>
+                Start
+            </button>
+            <button class="btn btn-info" click.trigger="restartStepCounter()">
+                <i class="fa fa-refresh"></i>
+                Restart
+            </button>
+            <button class="btn btn-danger" click.trigger="stopStepCounter()">
+                <i class="fa fa-stop"></i>
+                Stop
+            </button>
+        </div>
+        <div if.bind="playing">
+            <h2 if.bind="stepCounter">${stepCounterDisplay}</h2>
+            <h1 if.bind="(currentFigure.eights + 1) === figureCounter">${currentFigure.name}</h1>
+        </div>
+    </div>
     <div if.bind="!playing">
-        <div class="settings-container">
-            Notify on:
+        <hr/>
+        <div>
+            <label>Notify on:</label>
             <input type="number" value.bind="stepChanger|number" change.trigger="updateSettings()" />
-            <br/> Max number of wapeas between figures:
+            <br/>
+            <label>Max number of wapeas between figures:</label>
             <input type="number" value.bind="maxWapeas|number" change.trigger="updateSettings()" />
             <hr/>
         </div>
@@ -23,28 +45,5 @@
                 <input type="checkbox" checked.bind="f.selected" change.trigger="updateSettings()" />${f.name}
             </div>
         </div>
-        <hr/>
     </div>
-
-    <div class="display-container ${playing ? 'fixed':''}">
-        <div>
-            <button click.trigger="playStepCounter()">
-                <i class="fa fa-play"></i>
-                Start
-            </button>
-            <button click.trigger="restartStepCounter()">
-                <i class="fa fa-refresh"></i>
-                Restart
-            </button>
-            <button click.trigger="stopStepCounter()">
-                <i class="fa fa-stop"></i>
-                Stop
-            </button>
-        </div>
-        <div if.bind="playing">
-            <h2 if.bind="stepCounter">${stepCounterDisplay}</h2>
-            <h1 if.bind="(currentFigure.eights + 1) === figureCounter">${currentFigure.name}</h1>
-        </div>
-    </div>
-
 </template>
