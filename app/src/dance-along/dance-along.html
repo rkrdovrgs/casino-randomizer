@@ -1,0 +1,50 @@
+﻿<template>
+    <require from="dance-along/dance-along.css"></require>
+    <a route-href="route:home">
+        <i class="fa fa-list"></i>
+        Playlist
+    </a>
+    <hr/>
+    <audio ref="audioElement" preload="auto">
+        <source src="/api/files/${song.audio.filename}" type="audio/mpeg"> Your browser does not support the audio element.
+    </audio>
+    <div if.bind="!playing">
+        <div class="settings-container">
+            Notify on:
+            <input type="number" value.bind="stepChanger|number" change.trigger="updateSettings()" />
+            <br/> Max number of wapeas between figures:
+            <input type="number" value.bind="maxWapeas|number" change.trigger="updateSettings()" />
+            <hr/>
+        </div>
+
+        <b>Include:</b>
+        <div class="row">
+            <div repeat.for="f of figures" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                <input type="checkbox" checked.bind="f.selected" change.trigger="updateSettings()" />${f.name}
+            </div>
+        </div>
+        <hr/>
+    </div>
+
+    <div class="display-container ${playing ? 'fixed':''}">
+        <div>
+            <button click.trigger="playStepCounter()">
+                <i class="fa fa-play"></i>
+                Start
+            </button>
+            <button click.trigger="restartStepCounter()">
+                <i class="fa fa-refresh"></i>
+                Restart
+            </button>
+            <button click.trigger="stopStepCounter()">
+                <i class="fa fa-stop"></i>
+                Stop
+            </button>
+        </div>
+        <div if.bind="playing">
+            <h2 if.bind="stepCounter">${stepCounterDisplay}</h2>
+            <h1 if.bind="(currentFigure.eights + 1) === figureCounter">${currentFigure.name}</h1>
+        </div>
+    </div>
+
+</template>

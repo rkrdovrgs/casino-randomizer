@@ -1,31 +1,9 @@
-﻿<template>
+<template>
     <require from="home.css"></require>
-    <audio ref="audioElement" preload="auto">
-        <source src="/app/content/audio/audio1.mp3" type="audio/mpeg"> Your browser does not support the audio element.
-    </audio>
-    <div>
-        <button click.trigger="playStepCounter()">Start</button>
-        <button click.trigger="restartStepCounter()">Restart</button>
-        <button click.trigger="stopStepCounter()">Stop</button>
-    </div>
-    <div if.bind="!playing">
-        <!--Start delay:
-        <input type="number" value.bind="stepStartDelay" />
-        <br/> Step interval:
-        <input type="number" value.bind="stepInterval" />
-        <br/>-->Notify on:
-        <input type="number" value.bind="stepChanger" />
-        <br/> Max number of wapeas between figures:
-        <input type="number" value.bind="maxWapeas" />
-        <br/>
-
-        <b>Include:</b>
-        <div repeat.for="f of figures">
-            <input type="checkbox" checked.bind="f.selected" />${f.name}
+    <h1>Songs</h1>
+    <div class="row" repeat.for="s of songs">
+        <div class="col col-md-12">
+            <a route-href="route:dance-along;params.bind:{songId:s._id}">${s.name}</a>
         </div>
-    </div>
-    <div if.bind="playing">
-        <h2 if.bind="stepCounter">${stepCounterDisplay}</h2>
-        <h1 if.bind="(currentFigure.eights + 1) === figureCounter">${currentFigure.name}</h1>
     </div>
 </template>

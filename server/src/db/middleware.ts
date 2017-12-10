@@ -7,7 +7,7 @@ import { checkJwt } from "../helpers/authorization-helper";
 const router = express.Router();
 
 //get all filter by
-router.get("/api/:collection", checkJwt, function (req, res) {
+router.get("/api/:collection", function (req, res) {
     req.query.multi = req.query.multi !== "false";
 
     const db = connection(req.params.collection);

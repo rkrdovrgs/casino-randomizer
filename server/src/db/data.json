@@ -1,10 +1,82 @@
 {
-    "categories": [
+    "songs": [
         {
-            "name": "Men"
+            "name": "Maykel Blanco - Dale lo que lleva",
+            "eigthInterval": 2830,
+            "startDelay": 1600,
+            "audio": {
+                "fieldname": "files",
+                "originalname": "audio1.mp3",
+                "encoding": "7bit",
+                "mimetype": "audio/mp3",
+                "destination": "__files__/",
+                "filename": "bfc7f19d041ee7c77739ff7119dcfdff",
+                "path": "__files__/bfc7f19d041ee7c77739ff7119dcfdff",
+                "size": 7518387,
+                "_id": "5a2c8b47e96ef930a9121e15"
+            }
+        }
+    ],
+    "files": [
+        {
+            "fieldname": "files",
+            "originalname": "audio1.mp3",
+            "encoding": "7bit",
+            "mimetype": "audio/mp3",
+            "destination": "__files__/",
+            "filename": "bfc7f19d041ee7c77739ff7119dcfdff",
+            "path": "__files__/bfc7f19d041ee7c77739ff7119dcfdff",
+            "size": 7518387
+        }
+    ],
+    "figures": [
+        {
+            "name": "fly",
+            "eights": 1
         },
         {
-            "name": "Women"
+            "name": "enchufla",
+            "eights": 2
+        },
+        {
+            "name": "enchufla doble",
+            "eights": 3
+        },
+        {
+            "name": "kentuky",
+            "eights": 3
+        },
+        {
+            "name": "candado",
+            "eights": 4
+        },
+        {
+            "name": "sombrero",
+            "eights": 2
+        },
+        {
+            "name": "montana",
+            "eights": 4
+        },
+        {
+            "name": "el dedo",
+            "eights": 4
+        },
+        {
+            "name": "adios con hermana",
+            "eights": 3
+        },
+        {
+            "name": "setenta",
+            "eights": 4
+        },
+        {
+            "name": "vacilala",
+            "eights": 2
+        },
+        {
+            "name": "festival",
+            "eights": 3
         }
     ]
 }

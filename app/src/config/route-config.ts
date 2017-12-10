@@ -5,7 +5,7 @@ export class RouteConfiguration {
     private getRoutes(): Array<IRoute> {
         return _.map(routes, (r: IRoute) => {
             r.auth = r.auth !== false;
-            r.elementId = r.elementId || r.moduleId.split("/").pop();
+            r.elementId = r.elementId || r.name;
             return r;
         });
     }

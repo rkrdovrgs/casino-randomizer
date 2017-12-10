@@ -2,7 +2,7 @@ import * as mongojs from "mongojs";
 import { DbCollections } from "./collections";
 
 
-const connectionString = process.env.MONGODB_URI || "possystem";
+const connectionString = process.env.MONGODB_URI || "casinorandomizer";
 
 export function connection(...collections: string[]) {
     return mongojs(connectionString, collections);

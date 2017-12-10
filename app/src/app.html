@@ -5,7 +5,14 @@
     <require from="aurelia-dialog-styles.css"></require>
     <require from="../content/less/components/font-awesome.css"></require>
     <require from="app.css"></require>
-
-    <router-view id="${router.currentInstruction.config.elementId}"></router-view>
-
+    <nav>
+        <a href="https://www.linkedin.com/in/rkrdovrgs">
+            <i class="fa fa-linkedin-square"></i>
+            rkrdovrgs
+        </a>
+        <hr/>
+    </nav>
+    <div class="container">
+        <router-view id="${router.currentInstruction.config.elementId}"></router-view>
+    </div>
 </template>

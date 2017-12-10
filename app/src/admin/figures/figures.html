@@ -1,0 +1,36 @@
+<template>
+    <require from="admin/figures/figures.css"></require>
+    <a route-href="route:admin-songs">Songs</a>
+    <h1>Figures</h1>
+    <div class="row">
+        <div class="col col-md-3">
+            Name:
+            <input type="text" value.bind="newFigure.name" />
+        </div>
+        <div class="col col-md-3">
+            Eights (including "dile que no"):
+            <input type="number" value.bind="newFigure.eights|number" />
+        </div>
+        <div class="col col-md-6">
+            <button click.trigger="addFigure()">
+                <i class="fa fa-plus"></i>
+            </button>
+        </div>
+    </div>
+    <div class="row" repeat.for="f of figures">
+        <div class="col col-md-3">
+            <input type="text" value.bind="f.name" />
+        </div>
+        <div class="col col-md-3">
+            <input type="number" value.bind="f.eights|number" />
+        </div>
+        <div class="col col-md-6">
+            <button click.trigger="saveFigure(f)">
+                <i class="fa fa-save"></i>
+            </button>
+            <button click.trigger="removeFigure($index, f._id)">
+                <i class="fa fa-remove"></i>
+            </button>
+        </div>
+    </div>
+</template>

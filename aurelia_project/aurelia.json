@@ -5,7 +5,7 @@
     "id": "web",
     "displayName": "Web",
     "output": "app/dist",
-    "index": "index.html"
+    "index": "app/index.html"
   },
   "transpiler": {
     "id": "typescript",
@@ -84,7 +84,8 @@
     },
     "options": {
       "minify": "stage & prod",
-      "sourcemaps": "dev & stage"
+      "sourcemaps": "dev & stage",
+      "rev": "prod"
     }
   }
 }

@@ -1,0 +1,14 @@
+<template>
+    <require from="admin/songs/songs.css"></require>
+    <a route-href="route:admin-figures">Figures</a> |
+    <a route-href="route:admin-song-create">Add Song</a>
+    <h1>Songs</h1>
+    <div class="row" repeat.for="s of songs">
+        <div class="col col-md-12">
+            <button click.trigger="removeSong($index, s._id)">
+                <i class="fa fa-remove"></i>
+            </button>
+            <a route-href="route:admin-song-details;params.bind:{songId:s._id}">${s.name}</a>
+        </div>
+    </div>
+</template>
