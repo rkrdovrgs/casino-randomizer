@@ -15,6 +15,8 @@ import { AuthLockConfig } from "shared/auth-lock/base-config";
 });
 
 export function configure(aurelia: Aurelia) {
+    speechSynthesis.getVoices();
+
     //needed to add as global variable to be used with kendo export excel
     //window["JSZip"] = window["JSZip"] || JSZip;
     aurelia.use

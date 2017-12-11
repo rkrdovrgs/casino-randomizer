@@ -1,6 +1,7 @@
 ﻿import { inject } from "aurelia-framework";
 import { DbService } from "dataservices/db-service";
 import * as _ from "lodash";
+import { VoiceHelpers } from "helpers/voice-helpers";
 
 const settingsKey: string = "settings";
 interface IDanceAlongSettings {
@@ -40,14 +41,7 @@ export class DanceAlong {
         this.stepInterval = this.song.eigthInterval / 8;
         this.setSettings();
 
-
-        let voices = await new Promise<SpeechSynthesisVoice[]>(res => {
-            speechSynthesis.getVoices();
-            setTimeout(() => res(speechSynthesis.getVoices()), 1000)
-        });
-
-        console.log(voices);
-
+        let voices = await VoiceHelpers.getVoices();
         this.voice = voices.find(v => ["es-es", "es-us"].includes(v.lang.toLocaleLowerCase()));
     }
 
@@ -132,7 +126,7 @@ export class DanceAlong {
                 }
 
                 if (!!this.currentFigure && (this.currentFigure.eights + 1) === this.figureCounter) {
-                    this.readOutloud(this.currentFigure.name);
+                    VoiceHelpers.readOutloud(this.currentFigure.name, this.voice);
                 }
             }
 
@@ -149,7 +143,7 @@ export class DanceAlong {
         let settings: IDanceAlongSettings =
             Object.assign(<IDanceAlongSettings>{
                 maxWapeas: 2,
-                stepChanger: 4,
+                stepChanger: 7,
                 selectedFigures: _(this.figures).keyBy(x => x.name)
                     .mapValues(x => reset ? 1 : (x.stats || 1))
                     .value()
@@ -188,15 +182,4 @@ export class DanceAlong {
         localStorage.removeItem(settingsKey);
         this.setSettings(true);
     }
-
-    readOutloud(text: string) {
-        let utterance = new SpeechSynthesisUtterance();
-        utterance.voice = this.voice;
-        utterance.text = text;
-        utterance.rate = 1.25;
-        utterance.volume = 1;
-        speechSynthesis.speak(utterance);
-    }
-
-
 }
