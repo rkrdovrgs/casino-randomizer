@@ -137,6 +137,18 @@
         {
             "name": "festival",
             "eights": 3
+        },
+        {
+            "name": "setenta y uno",
+            "eights": 3
+        },
+        {
+            "name": "setenta y dos",
+            "eights": 4
+        },
+        {
+            "name": "setenta y siete",
+            "eights": 5
         }
     ]
 }
