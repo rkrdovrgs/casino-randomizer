@@ -103,7 +103,7 @@
             "eights": 3
         },
         {
-            "name": "kentuky",
+            "name": "kentucky",
             "eights": 3
         },
         {
@@ -123,7 +123,7 @@
             "eights": 4
         },
         {
-            "name": "adios con hermana",
+            "name": "adiós con hermana",
             "eights": 3
         },
         {
@@ -131,7 +131,7 @@
             "eights": 4
         },
         {
-            "name": "vacilala",
+            "name": "vacílala",
             "eights": 2
         },
         {
@@ -149,6 +149,14 @@
         {
             "name": "setenta y siete",
             "eights": 5
+        },
+        {
+            "name": "pozo",
+            "eights": 2
+        },
+        {
+            "name": "exhíbela",
+            "eights": 3
         }
     ]
 }
