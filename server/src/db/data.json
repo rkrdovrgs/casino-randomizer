@@ -157,6 +157,18 @@
         {
             "name": "exhíbela",
             "eights": 3
+        },
+        {
+            "name": "sombrero doble",
+            "eights": 4
+        },
+        {
+            "name": "titanic",
+            "eights": 6
+        },
+        {
+            "name": "tornillo",
+            "eights": 5
         }
     ]
 }
