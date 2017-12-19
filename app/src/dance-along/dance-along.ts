@@ -21,6 +21,7 @@ export class DanceAlong {
     stepIntervalId: NodeJS.Timer;
     currentFigure;
     figureCounter: number = 0;
+    figureDelay: number = 1;
 
     stepChanger: number;
     maxWapeas: number;
@@ -48,6 +49,7 @@ export class DanceAlong {
     bind() {
         this.audioElement.onplay = () => {
             this.playing = true;
+            VoiceHelpers.readOutloud("Iniciando", this.voice);
             let playIntervalId = setInterval(() => {
                 if (this.audioElement.currentTime >= (this.song.startDelay / 1000)) {
                     clearInterval(playIntervalId);
@@ -115,9 +117,9 @@ export class DanceAlong {
             if (this.stepCounter === this.stepChanger) {
                 //<=1 or <=0
                 if (this.figureCounter <= 1) {
-                    let randomFigureIndex = this.generateRandom(selectedFigures.length) - 1,
+                    let randomFigureIndex = this.generateRandom(selectedFigures.length - 1),
                         randomWapeas = this.generateRandom(this.maxWapeas);
-
+                    this.figureDelay = randomWapeas > 0 ? 1 : 0;
                     this.currentFigure = selectedFigures[randomFigureIndex];
                     this.figureCounter = this.currentFigure.eights + randomWapeas;
 
@@ -125,7 +127,7 @@ export class DanceAlong {
                     this.figureCounter -= 1;
                 }
 
-                if (!!this.currentFigure && (this.currentFigure.eights + 1) === this.figureCounter) {
+                if (!!this.currentFigure && (this.currentFigure.eights + this.figureDelay) === this.figureCounter) {
                     VoiceHelpers.readOutloud(this.currentFigure.name, this.voice);
                 }
             }
@@ -135,7 +137,8 @@ export class DanceAlong {
 
     generateRandom(max): number {
         if (max <= 0) return 0;
-        return Math.floor(Math.random() * max) + 1
+        return Math.floor(Math.random() * (max + 1))
+
     }
 
     setSettings(reset = false) {
