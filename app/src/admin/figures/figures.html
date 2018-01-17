@@ -3,32 +3,39 @@
     <a route-href="route:admin-songs">Songs</a>
     <h1>Figures</h1>
     <div class="row">
-        <div class="col col-md-3">
+        <div class="col col-xs-7">
             Name:
-            <input type="text" value.bind="newFigure.name" />
         </div>
-        <div class="col col-md-3">
-            Eights (including "dile que no"):
-            <input type="number" value.bind="newFigure.eights|number" />
+        <div class="col col-xs-5">
+            Eighths
+            <span class="hidden-xs">&nbsp;(including "dile que no")</span>:
         </div>
-        <div class="col col-md-6">
-            <button click.trigger="addFigure()">
+    </div>
+    <div class="row">
+        <div class="col col-xs-7">
+            <input type="text" class="form-control" value.bind="newFigure.name" />
+        </div>
+        <div class="col col-xs-5 col-sm-3">
+            <input type="number" class="form-control" value.bind="newFigure.eights|number" />
+        </div>
+        <div class="col col-xs-12 col-sm-2">
+            <button class="btn btn-primary pull-right" click.trigger="addFigure()">
                 <i class="fa fa-plus"></i>
             </button>
         </div>
     </div>
     <div class="row" repeat.for="f of figures">
-        <div class="col col-md-3">
-            <input type="text" value.bind="f.name" />
+        <div class="col col-xs-7">
+            <input type="text" class="form-control" value.bind="f.name" />
         </div>
-        <div class="col col-md-3">
-            <input type="number" value.bind="f.eights|number" />
+        <div class="col col-xs-5 col-sm-3">
+            <input type="number" class="form-control" value.bind="f.eights|number" />
         </div>
-        <div class="col col-md-6">
-            <button click.trigger="saveFigure(f)">
+        <div class="col col-xs-12 col-sm-2">
+            <button class="btn btn-primary pull-right" click.trigger="saveFigure(f)">
                 <i class="fa fa-save"></i>
             </button>
-            <button click.trigger="removeFigure($index, f._id)">
+            <button class="btn btn-default pull-right" click.trigger="removeFigure($index, f._id)">
                 <i class="fa fa-remove"></i>
             </button>
         </div>

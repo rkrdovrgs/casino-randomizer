@@ -3,7 +3,10 @@
     <h1>Songs</h1>
     <div class="row" repeat.for="s of songs">
         <div class="col col-md-12">
-            <a route-href="route:dance-along;params.bind:{songId:s._id}">${s.name}</a>
+            <a class="btn btn-link" route-href="route:dance-along;params.bind:{songId:s._id}">
+                <i class="fa fa-play"></i>
+                ${s.name}
+            </a>
         </div>
     </div>
 </template>
