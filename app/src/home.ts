@@ -11,7 +11,7 @@ export class Home {
 
     async activate() {
         this.songs = await this.db.songs.find();
-        this.songs = _.sortBy(this.songs, s => s.name);
+        this.songs = _.orderBy(this.songs, s => s.name, "desc");
     }
 }
 
