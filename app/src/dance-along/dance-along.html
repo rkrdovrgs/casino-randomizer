@@ -38,6 +38,13 @@
             <br/>
             <label>Max number of wapeas between figures:</label>
             <input type="number" value.bind="maxWapeas|number" change.trigger="updateSettings()" />
+            <br/>
+            <label>
+                <input type="checkbox" checked.bind="rueda" change.trigger="setRueda()" /> Rueda?
+            </label>
+            <label if.bind="rueda">Max number of figures between "dame":</label>
+            <input type="number" value.bind="maxFigures|number" change.trigger="updateSettings()" if.bind="rueda" />
+            <br/>
             <hr/>
         </div>
 
@@ -47,12 +54,11 @@
                 <input class="figure-stats" type="number" value.bind="f.stats|number" disabled.bind="!f.selected" change.trigger="updateSettings()"
                 />
                 <label>
-                    <input type="checkbox" checked.bind="f.selected" change.trigger="updateSettings()" />${f.name}
+                    <input type="checkbox" checked.bind="f.selected" change.trigger="updateSettings()" disabled.bind="!rueda && f.rueda" />${f.name}
                 </label>
             </div>
         </div>
         <hr/>
         <button click.trigger="resetSettings()">Reset</button>
-        <button click.trigger="resetRuedaSettings()">Reset Rueda</button>
     </div>
 </template>

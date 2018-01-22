@@ -8,6 +8,8 @@ interface IDanceAlongSettings {
     selectedFigures: { [fiigureName: string]: number };
     stepChanger: number;
     maxWapeas: number;
+    rueda: boolean;
+    maxFigures: number;
 }
 
 @inject(DbService)
@@ -25,10 +27,17 @@ export class DanceAlong {
 
     stepChanger: number;
     maxWapeas: number;
+    maxFigures: number;
+    rueda: boolean;
 
     //eights include "dile que no"
     figures: IFigure[] = [];
     song: ISong;
+    dameCounter: number = 0;
+    dame = <IFigure>{
+        name: "dame",
+        eights: 1
+    };
 
     voice: SpeechSynthesisVoice;
 
@@ -120,8 +129,18 @@ export class DanceAlong {
                 if (this.figureCounter <= 1) {
                     let randomFigureIndex = this.generateRandom(selectedFigures.length - 1),
                         randomWapeas = this.generateRandom(this.maxWapeas);
-                    this.figureDelay = randomWapeas > 0 ? 1 : 0;
                     this.currentFigure = selectedFigures[randomFigureIndex];
+
+                    if (this.rueda) {
+                        if (this.dameCounter < this.generateRandom(this.maxFigures - 1) + 1) {
+                            this.dameCounter += 1;
+                        } else {
+                            this.dameCounter = 0;
+                            this.currentFigure = this.dame;
+                        }
+                    }
+
+                    this.figureDelay = randomWapeas > 0 ? 1 : 0;
                     this.figureCounter = this.currentFigure.eights + randomWapeas;
 
                 } else {
@@ -142,23 +161,27 @@ export class DanceAlong {
 
     }
 
-    setSettings(reset = false) {
+    setSettings() {
         // get from localstorage
         let settings: IDanceAlongSettings =
             Object.assign(<IDanceAlongSettings>{
                 maxWapeas: 2,
                 stepChanger: 7,
+                rueda: false,
+                maxFigures: 1,
                 selectedFigures: _(this.figures).keyBy(x => x.name)
-                    .mapValues(x => reset ? 1 : (x.stats || 1))
+                    .mapValues(() => 1)
                     .value()
             }, JSON.parse(localStorage.getItem("settings")));
 
         this.maxWapeas = settings.maxWapeas;
         this.stepChanger = settings.stepChanger;
+        this.rueda = settings.rueda;
+        this.maxFigures = settings.maxFigures;
 
         this.figures.forEach(f => {
-            f.selected = !!settings.selectedFigures[f.name];
-            f.stats = settings.selectedFigures[f.name] || 0;
+            f.selected = this.rueda ? !!settings.selectedFigures[f.name] : (!!settings.selectedFigures[f.name] && !f.rueda);
+            f.stats = f.selected ? (settings.selectedFigures[f.name] || 0) : 0;
         });
     }
 
@@ -174,6 +197,8 @@ export class DanceAlong {
         let settings: IDanceAlongSettings = {
             maxWapeas: this.maxWapeas,
             stepChanger: this.stepChanger,
+            rueda: this.rueda,
+            maxFigures: this.maxFigures,
             selectedFigures: _(this.figures).filter(x => x.selected)
                 .keyBy(x => x.name)
                 .mapValues(x => x.stats || 1)
@@ -183,15 +208,16 @@ export class DanceAlong {
     }
 
     resetSettings() {
-        this.figures.forEach(f => {
-            f.selected = !f.rueda;
-            f.stats = 1;
-        });
-        this.updateSettings();
+        localStorage.removeItem("settings");
+        this.setSettings();
     }
 
-    resetRuedaSettings() {
-        localStorage.removeItem(settingsKey);
-        this.setSettings(true);
+    setRueda() {
+        this.figures.filter(f => f.rueda).forEach(f => {
+            f.selected = this.rueda;
+            f.stats = this.rueda ? 1 : 0;
+        });
+        this.maxFigures = 1;
+        this.updateSettings();
     }
 }
