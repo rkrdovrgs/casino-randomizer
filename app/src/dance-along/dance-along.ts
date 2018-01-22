@@ -38,6 +38,7 @@ export class DanceAlong {
     async activate({ songId }) {
         this.song = await this.db.songs.findById(songId);
         this.figures = await this.db.figures.find();
+        this.figures = _.sortBy(this.figures, f => (f.rueda || false));
 
         this.stepInterval = this.song.eigthInterval / 8;
         this.setSettings();
@@ -182,6 +183,14 @@ export class DanceAlong {
     }
 
     resetSettings() {
+        this.figures.forEach(f => {
+            f.selected = !f.rueda;
+            f.stats = 1;
+        });
+        this.updateSettings();
+    }
+
+    resetRuedaSettings() {
         localStorage.removeItem(settingsKey);
         this.setSettings(true);
     }

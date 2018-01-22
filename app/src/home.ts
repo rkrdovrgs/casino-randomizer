@@ -1,6 +1,7 @@
 import { inject } from "aurelia-framework";
 import { DbService } from "dataservices/db-service";
 import { FileService } from "dataservices/file-service";
+import * as _ from "lodash";
 
 @inject(DbService, FileService)
 export class Home {
@@ -10,6 +11,7 @@ export class Home {
 
     async activate() {
         this.songs = await this.db.songs.find();
+        this.songs = _.sortBy(this.songs, s => s.name);
     }
 }
 

@@ -32,7 +32,8 @@ export class Figures {
     initNewFigure() {
         this.newFigure = <IFigure>{
             eights: 0,
-            name: ""
+            name: "",
+            rueda: false
         };
     }
 }

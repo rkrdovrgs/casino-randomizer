@@ -4,4 +4,5 @@ interface IFigure {
     eights: number;
     selected?: boolean;
     stats?: number;
+    rueda: boolean;
 }

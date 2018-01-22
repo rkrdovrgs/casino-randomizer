@@ -1,7 +1,6 @@
 {
     "songs": [
         {
-            
             "name": "Maykel Blanco - Dale lo que lleva",
             "eigthInterval": 2830,
             "startDelay": 1600,
@@ -18,7 +17,6 @@
             }
         },
         {
-            
             "name": "Salsa Cubana - Abre que voy",
             "eigthInterval": 2450,
             "startDelay": 5058,
@@ -35,7 +33,6 @@
             }
         },
         {
-            
             "name": "DLG - No Morira",
             "eigthInterval": 2925,
             "startDelay": 12000,
@@ -52,7 +49,6 @@
             }
         },
         {
-            
             "name": "DLG - Muevete",
             "eigthInterval": 2510,
             "startDelay": 5327,
@@ -69,7 +65,6 @@
             }
         },
         {
-            
             "name": "DLG - Acuyuye",
             "eigthInterval": 2240,
             "startDelay": 7000,
@@ -86,7 +81,6 @@
             }
         },
         {
-            
             "name": "Luis Enrique - Yo Voy Pa Encima",
             "eigthInterval": 3000,
             "startDelay": 1000,
@@ -103,7 +97,6 @@
             }
         },
         {
-            
             "name": "Croma Latina - Croma Latina Llego",
             "eigthInterval": 3000,
             "startDelay": 1000,
@@ -120,7 +113,6 @@
             }
         },
         {
-           
             "name": "Fredyclan - Yo Vengo de Cuba",
             "eigthInterval": 3000,
             "startDelay": 1000,
@@ -137,7 +129,6 @@
             }
         },
         {
-            
             "name": "Una Mujer Que Le Encanta",
             "eigthInterval": 3000,
             "startDelay": 1000,
@@ -154,7 +145,6 @@
             }
         },
         {
-           
             "name": "Remeneate",
             "eigthInterval": 3000,
             "startDelay": 1000,
@@ -171,7 +161,6 @@
             }
         },
         {
-            
             "name": "Camina",
             "eigthInterval": 3000,
             "startDelay": 1000,
@@ -190,11 +179,6 @@
     ],
     "files": [],
     "figures_backup": [
-        {
-            "_id": "5a55932828041c0014ff8c14",
-            "name": "fly",
-            "eights": 1
-        },
         {
             "_id": "5a55932828041c0014ff8c15",
             "name": "enchufa",
@@ -333,7 +317,7 @@
         {
             "_id": "5a5e239a1cc18200148fc758",
             "eights": 3,
-            "name": "enchufa y reggeaton"
+            "name": "enchufa y reggeton"
         },
         {
             "_id": "5a5e23ae1cc18200148fc759",
@@ -344,11 +328,6 @@
             "_id": "5a5e23b61cc18200148fc75a",
             "eights": 3,
             "name": "enchufa y rumba"
-        },
-        {
-            "_id": "5a5e23ef1cc18200148fc75b",
-            "eights": 3,
-            "name": "hombre al centro"
         },
         {
             "_id": "5a5e24a21cc18200148fc75c",
@@ -374,6 +353,51 @@
             "_id": "5a5e2dc7d8fdc90014e61803",
             "eights": 6,
             "name": "carusel arriba"
+        },
+        {
+            "_id": "5a6006d632234a00149fe64c",
+            "eights": 3,
+            "name": "paséala"
+        },
+        {
+            "_id": "5a60080532234a00149fe64d",
+            "eights": 6,
+            "name": "setenta y cinco"
+        },
+        {
+            "_id": "5a60080e32234a00149fe64e",
+            "eights": 5,
+            "name": "doce"
+        },
+        {
+            "_id": "5a6283b2c479d800141fd01a",
+            "eights": 1,
+            "name": "fly"
+        },
+        {
+            "_id": "5a63b16038c4ed001459e419",
+            "eights": 4,
+            "name": "cun cun"
+        },
+        {
+            "_id": "5a63b17d38c4ed001459e41a",
+            "eights": 3,
+            "name": "abrázala"
+        },
+        {
+            "_id": "5a63b1a138c4ed001459e41b",
+            "eights": 4,
+            "name": "sombrero doble"
+        },
+        {
+            "_id": "5a63b1ca38c4ed001459e41c",
+            "eights": 4,
+            "name": "sombrero triple"
+        },
+        {
+            "_id": "5a63be8238c4ed001459e41d",
+            "eights": 5,
+            "name": "montaña doble"
         }
     ]
 }
