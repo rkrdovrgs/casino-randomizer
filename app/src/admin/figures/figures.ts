@@ -1,5 +1,6 @@
 import { inject } from "aurelia-framework";
 import { DbService } from "dataservices/db-service";
+import * as _ from "lodash";
 
 @inject(DbService)
 export class Figures {
