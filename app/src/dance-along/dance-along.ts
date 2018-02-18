@@ -30,6 +30,12 @@ export class DanceAlong {
     maxFigures: number;
     rueda: boolean;
 
+    resetConfig = {
+        lastNumberOfFigures: 7,
+        incremental: false,
+        includeAll: false
+    }
+
     //eights include "dile que no"
     figures: IFigure[] = [];
     song: ISong;
@@ -95,11 +101,15 @@ export class DanceAlong {
         this.playStepCounter();
     }
 
-    initStepCounter() {
-        let selectedFigures = _(this.figures)
+    getSelectedFigures() {
+        return _(this.figures)
             .filter(f => f.selected)
             .flatMap(f => Array(f.stats).fill(f))
             .value();
+    }
+
+    initStepCounter() {
+        let selectedFigures = this.getSelectedFigures();
 
         if (!selectedFigures.length) {
             this.playing = false;
@@ -130,9 +140,14 @@ export class DanceAlong {
             if (this.stepCounter === this.stepChanger) {
                 //<=1 or <=0
                 if (this.figureCounter <= 1) {
+                    if (!selectedFigures.length) {
+                        selectedFigures = this.getSelectedFigures();
+                    }
+
                     let randomFigureIndex = this.generateRandom(selectedFigures.length - 1),
                         randomWapeas = this.generateRandom(this.maxWapeas);
                     this.currentFigure = selectedFigures[randomFigureIndex];
+                    selectedFigures.splice(randomFigureIndex, 1);
 
                     if (this.rueda) {
                         if (this.dameCounter < this.generateRandom(this.maxFigures - 1) + 1) {
@@ -168,7 +183,7 @@ export class DanceAlong {
         // get from localstorage
         let settings: IDanceAlongSettings =
             Object.assign(<IDanceAlongSettings>{
-                maxWapeas: 2,
+                maxWapeas: 3,
                 stepChanger: 7,
                 rueda: false,
                 maxFigures: 1,
@@ -213,6 +228,37 @@ export class DanceAlong {
     resetSettings() {
         localStorage.removeItem("settings");
         this.setSettings();
+    }
+
+    resetSettingsForLastFigures(lastNumberOfFigures, incremental, includeAll, practiceLastFigure) {
+        this.resetSettings();
+        let figures = this.figures.filter(f => !f.rueda),
+            startIncremental = includeAll ? figures.length : lastNumberOfFigures;
+
+        figures
+            .map(f => {
+                if (!includeAll) {
+                    f.selected = false;
+                    f.stats = 0;
+                }
+                return f;
+            })
+            .slice(0, lastNumberOfFigures)
+            .forEach(f => {
+                f.selected = true;
+                if (!incremental) {
+                    f.stats = includeAll ? figures.length : 1;
+                } else {
+                    f.stats = startIncremental;
+                    startIncremental--;
+                }
+            });
+
+        if (practiceLastFigure) {
+            figures[0].stats = lastNumberOfFigures;
+        }
+
+        this.updateSettings();
     }
 
     setRueda() {

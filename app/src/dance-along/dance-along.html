@@ -32,6 +32,31 @@
     </div>
     <div if.bind="!playing">
         <hr/>
+        <button click.trigger="resetSettingsForLastFigures(5, false, false, true)">New figure</button>
+        <button click.trigger="resetSettingsForLastFigures(7, true, false)">Last 7 Incremental</button>
+        <button click.trigger="resetSettingsForLastFigures(10, false, false)">Last 10</button>
+        <button click.trigger="resetSettingsForLastFigures(15, false, true)">Last 15 with All</button>
+
+        <br/>
+        <br/>
+
+        <button click.trigger="resetSettings()">Reset All</button>
+        <button click.trigger="resetSettingsForLastFigures(resetConfig.lastNumberOfFigures, resetConfig.incremental, resetConfig.includeAll)">Reset Last</button>
+        <br/>
+        <div class="settings-container">
+            <label>Last:</label>
+            <input type="number" value.bind="resetConfig.lastNumberOfFigures|number" />
+            <br/>
+            <label>
+                <input type="checkbox" checked.bind="resetConfig.incremental" /> Incremental?
+            </label>
+            <label>
+                <input type="checkbox" checked.bind="resetConfig.includeAll" /> Include all?
+            </label>
+        </div>
+    </div>
+    <div if.bind="!playing">
+        <hr/>
         <div class="settings-container">
             <label>Notify on:</label>
             <input type="number" value.bind="stepChanger|number" change.trigger="updateSettings()" />
@@ -58,7 +83,5 @@
                 </label>
             </div>
         </div>
-        <hr/>
-        <button click.trigger="resetSettings()">Reset</button>
     </div>
 </template>
