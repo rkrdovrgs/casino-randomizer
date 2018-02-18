@@ -1,6 +1,7 @@
 {
     "songs": [
         {
+            "_id": "5a5eac0e9613b300149782e6",
             "name": "Maykel Blanco - Dale lo que lleva",
             "eigthInterval": 2830,
             "startDelay": 1600,
@@ -17,9 +18,10 @@
             }
         },
         {
+            "_id": "5a5eac0e9613b300149782e7",
             "name": "Salsa Cubana - Abre que voy",
             "eigthInterval": 2450,
-            "startDelay": 5058,
+            "startDelay": 3833,
             "audio": {
                 "fieldname": "files",
                 "originalname": "Salsa Abre Que Voy[Mimp3.TV].mp3",
@@ -33,7 +35,8 @@
             }
         },
         {
-            "name": "DLG - No Morira",
+            "_id": "5a5eac0e9613b300149782e8",
+            "name": "(not ready) DLG - No Morira",
             "eigthInterval": 2925,
             "startDelay": 12000,
             "audio": {
@@ -49,7 +52,8 @@
             }
         },
         {
-            "name": "DLG - Muevete",
+            "_id": "5a5eac0e9613b300149782e9",
+            "name": "(not ready) DLG - Muevete",
             "eigthInterval": 2510,
             "startDelay": 5327,
             "audio": {
@@ -65,7 +69,8 @@
             }
         },
         {
-            "name": "DLG - Acuyuye",
+            "_id": "5a5eac0e9613b300149782ea",
+            "name": "(not ready) DLG - Acuyuye",
             "eigthInterval": 2240,
             "startDelay": 7000,
             "audio": {
@@ -81,9 +86,10 @@
             }
         },
         {
+            "_id": "5a5eac0e9613b300149782eb",
             "name": "Luis Enrique - Yo Voy Pa Encima",
-            "eigthInterval": 3000,
-            "startDelay": 1000,
+            "eigthInterval": 2335,
+            "startDelay": 5922,
             "audio": {
                 "fieldname": "files",
                 "originalname": "Luis Enrique - Yo Voy Pa Encima (Lyric Video).mp3",
@@ -97,9 +103,10 @@
             }
         },
         {
+            "_id": "5a5eac0e9613b300149782ec",
             "name": "Croma Latina - Croma Latina Llego",
-            "eigthInterval": 3000,
-            "startDelay": 1000,
+            "eigthInterval": 2455,
+            "startDelay": 1761,
             "audio": {
                 "fieldname": "files",
                 "originalname": "Croma Latina - Croma Latina Llego.mp3",
@@ -113,7 +120,8 @@
             }
         },
         {
-            "name": "Fredyclan - Yo Vengo de Cuba",
+            "_id": "5a5eac0e9613b300149782ed",
+            "name": "(not ready) Fredyclan - Yo Vengo de Cuba",
             "eigthInterval": 3000,
             "startDelay": 1000,
             "audio": {
@@ -129,9 +137,10 @@
             }
         },
         {
+            "_id": "5a5eac0e9613b300149782ee",
             "name": "Una Mujer Que Le Encanta",
-            "eigthInterval": 3000,
-            "startDelay": 1000,
+            "eigthInterval": 2677,
+            "startDelay": 430,
             "audio": {
                 "fieldname": "files",
                 "originalname": "Una Mujer Que Le Encanta.mp3",
@@ -145,7 +154,8 @@
             }
         },
         {
-            "name": "Remeneate",
+            "_id": "5a5eac0e9613b300149782ef",
+            "name": "(not ready) Remeneate",
             "eigthInterval": 3000,
             "startDelay": 1000,
             "audio": {
@@ -161,9 +171,10 @@
             }
         },
         {
-            "name": "Camina",
-            "eigthInterval": 3000,
-            "startDelay": 1000,
+            "_id": "5a5eac0e9613b300149782f0",
+            "name": "(not ready) Camina",
+            "eigthInterval": 2310,
+            "startDelay": 1655,
             "audio": {
                 "fieldname": "files",
                 "originalname": "Camina.mp3",
@@ -175,229 +186,497 @@
                 "size": 7998966,
                 "_id": "5a5ea2384326ae10de6a0c2e"
             }
+        },
+        {
+            "_id": "5a88d04838200c1b852b0ab5",
+            "name": "(not ready) DLG - Juliana",
+            "eigthInterval": 1000,
+            "startDelay": 1000,
+            "audio": {
+                "fieldname": "files",
+                "originalname": "DLG (Dark Latin Groove) - Juliana ( LetraLyrics ).mp3",
+                "encoding": "7bit",
+                "mimetype": "audio/mp3",
+                "destination": "__files__/",
+                "filename": "71cbac2456a6cc4d261c6bef1cf430e9",
+                "path": "__files__/71cbac2456a6cc4d261c6bef1cf430e9",
+                "size": 6588636,
+                "_id": "5a88d04838200c1b852b0ab4"
+            }
+        },
+        {
+            "_id": "5a88d06e38200c1b852b0ab7",
+            "name": "(not ready) Jerry Rivera & Julio Voltio - Mi Libertad",
+            "eigthInterval": 1000,
+            "startDelay": 1000,
+            "audio": {
+                "fieldname": "files",
+                "originalname": "Jerry Rivera featuring Voltio - Mi Libertad.mp3",
+                "encoding": "7bit",
+                "mimetype": "audio/mp3",
+                "destination": "__files__/",
+                "filename": "8e41a9c6dd1ccdfc8ee12b60ee51a31a",
+                "path": "__files__/8e41a9c6dd1ccdfc8ee12b60ee51a31a",
+                "size": 6709635,
+                "_id": "5a88d06e38200c1b852b0ab6"
+            }
+        },
+        {
+            "_id": "5a88d08738200c1b852b0ab9",
+            "name": "(not ready) Luis Enrique - Te amo",
+            "eigthInterval": 1000,
+            "startDelay": 1000,
+            "audio": {
+                "fieldname": "files",
+                "originalname": "Luis Enrique - Te amo - JUKEBOX.mp3",
+                "encoding": "7bit",
+                "mimetype": "audio/mp3",
+                "destination": "__files__/",
+                "filename": "451c1e685146ed9a5e08aed98819d8df",
+                "path": "__files__/451c1e685146ed9a5e08aed98819d8df",
+                "size": 6051977,
+                "_id": "5a88d08738200c1b852b0ab8"
+            }
         }
     ],
     "files": [],
-    "figures_backup": [
+    "figures": [
         {
             "_id": "5a55932828041c0014ff8c15",
             "name": "enchufa",
-            "eights": 2
+            "eights": 2,
+            "createdAt": "2018-02-18T00:51:43.972Z"
         },
         {
             "_id": "5a55932828041c0014ff8c16",
             "name": "enchufa doble",
-            "eights": 3
+            "eights": 3,
+            "createdAt": "2018-02-18T00:51:43.981Z"
         },
         {
             "_id": "5a55932828041c0014ff8c17",
             "name": "kentucky",
-            "eights": 3
+            "eights": 3,
+            "createdAt": "2018-02-18T00:51:43.992Z"
         },
         {
             "_id": "5a55932828041c0014ff8c18",
             "name": "candado",
-            "eights": 4
+            "eights": 4,
+            "createdAt": "2018-02-18T00:51:44.002Z"
         },
         {
             "_id": "5a55932828041c0014ff8c19",
             "name": "sombrero",
-            "eights": 2
+            "eights": 2,
+            "createdAt": "2018-02-18T00:51:44.011Z"
         },
         {
             "_id": "5a55932828041c0014ff8c1a",
             "name": "montaña",
-            "eights": 4
+            "eights": 4,
+            "createdAt": "2018-02-18T00:51:44.021Z"
         },
         {
             "_id": "5a55932828041c0014ff8c1b",
             "name": "el dedo",
-            "eights": 4
+            "eights": 4,
+            "createdAt": "2018-02-18T00:51:44.032Z"
         },
         {
             "_id": "5a55932828041c0014ff8c1c",
             "name": "adiós con hermana",
-            "eights": 3
+            "eights": 3,
+            "createdAt": "2018-02-18T00:51:44.042Z"
         },
         {
             "_id": "5a55932828041c0014ff8c1d",
             "name": "setenta",
-            "eights": 4
+            "eights": 4,
+            "createdAt": "2018-02-18T00:51:44.052Z"
         },
         {
             "_id": "5a55932828041c0014ff8c1e",
             "name": "vacílala",
-            "eights": 2
+            "eights": 2,
+            "createdAt": "2018-02-18T00:51:44.063Z"
         },
         {
             "_id": "5a55932828041c0014ff8c1f",
             "name": "festival",
-            "eights": 3
+            "eights": 3,
+            "createdAt": "2018-02-18T00:51:44.073Z"
         },
         {
             "_id": "5a55932828041c0014ff8c20",
             "name": "setenta y uno",
-            "eights": 3
+            "eights": 3,
+            "createdAt": "2018-02-18T00:51:44.082Z"
         },
         {
             "_id": "5a55932828041c0014ff8c21",
             "name": "setenta y dos",
-            "eights": 4
+            "eights": 4,
+            "createdAt": "2018-02-18T00:51:44.093Z"
         },
         {
             "_id": "5a55932828041c0014ff8c22",
             "name": "setenta y siete",
-            "eights": 5
+            "eights": 5,
+            "createdAt": "2018-02-18T00:51:44.103Z"
         },
         {
             "_id": "5a55932828041c0014ff8c23",
             "name": "pozo",
-            "eights": 2
+            "eights": 2,
+            "createdAt": "2018-02-18T00:51:44.113Z"
         },
         {
             "_id": "5a55932828041c0014ff8c24",
             "name": "exhíbela",
-            "eights": 3
+            "eights": 3,
+            "createdAt": "2018-02-18T00:51:44.124Z"
         },
         {
             "_id": "5a561b1328041c0014ff8c28",
             "eights": 4,
-            "name": "beso"
+            "name": "beso",
+            "createdAt": "2018-02-18T00:51:44.134Z"
         },
         {
             "_id": "5a59716525b5f40014818396",
             "eights": 4,
-            "name": "setenta y tres"
+            "name": "setenta y tres",
+            "createdAt": "2018-02-18T00:51:44.144Z"
         },
         {
             "_id": "5a5971c425b5f40014818397",
             "eights": 9,
-            "name": "kentucky complicado"
+            "name": "kentucky complicado",
+            "createdAt": "2018-02-18T00:51:44.154Z"
         },
         {
             "_id": "5a59723425b5f40014818398",
             "eights": 2,
-            "name": "abanico"
+            "name": "abanico",
+            "createdAt": "2018-02-18T00:51:44.165Z"
         },
         {
             "_id": "5a59728725b5f40014818399",
             "eights": 3,
-            "name": "enchufa por arriba"
+            "name": "enchufa por arriba",
+            "createdAt": "2018-02-18T00:51:44.175Z"
         },
         {
             "_id": "5a59843725b5f4001481839a",
             "eights": 4,
-            "name": "enrózcate"
-        },
-        {
-            "_id": "5a5e23451cc18200148fc753",
-            "eights": 1,
-            "name": "dame"
+            "name": "enrózcate",
+            "createdAt": "2018-02-18T00:51:44.185Z"
         },
         {
             "_id": "5a5e235c1cc18200148fc754",
             "eights": 2,
-            "name": "enchufa y dame"
+            "name": "enchufa y dame",
+            "rueda": true,
+            "createdAt": "2018-02-18T00:51:44.196Z"
         },
         {
             "_id": "5a5e236c1cc18200148fc755",
             "eights": 2,
-            "name": "enchufa y arriba"
+            "name": "enchufa y arriba",
+            "rueda": true,
+            "createdAt": "2018-02-18T00:51:44.206Z"
         },
         {
             "_id": "5a5e237a1cc18200148fc756",
             "eights": 2,
-            "name": "dame dos"
+            "name": "dame dos",
+            "rueda": true,
+            "createdAt": "2018-02-18T00:51:44.216Z"
         },
         {
             "_id": "5a5e238b1cc18200148fc757",
             "eights": 3,
-            "name": "tres con tres"
+            "name": "tres con tres",
+            "rueda": true,
+            "createdAt": "2018-02-18T00:51:44.227Z"
         },
         {
             "_id": "5a5e239a1cc18200148fc758",
             "eights": 3,
-            "name": "enchufa y reggeton"
+            "name": "enchufa y reggeton",
+            "rueda": true,
+            "createdAt": "2018-02-18T00:51:44.237Z"
         },
         {
             "_id": "5a5e23ae1cc18200148fc759",
             "eights": 3,
-            "name": "enchufa y mambo"
+            "name": "enchufa y mambo",
+            "rueda": true,
+            "createdAt": "2018-02-18T00:51:44.247Z"
         },
         {
             "_id": "5a5e23b61cc18200148fc75a",
             "eights": 3,
-            "name": "enchufa y rumba"
+            "name": "enchufa y rumba",
+            "rueda": true,
+            "createdAt": "2018-02-18T00:51:44.258Z"
         },
         {
             "_id": "5a5e24a21cc18200148fc75c",
             "eights": 3,
-            "name": "enchufa y foto"
+            "name": "enchufa y foto",
+            "rueda": true,
+            "createdAt": "2018-02-18T00:51:44.268Z"
         },
         {
             "_id": "5a5e24ce1cc18200148fc75d",
             "eights": 5,
-            "name": "setenta y cuatro"
+            "name": "setenta y cuatro",
+            "createdAt": "2018-02-18T00:51:44.278Z"
         },
         {
             "_id": "5a5e24f31cc18200148fc75e",
             "eights": 6,
-            "name": "ochenta y cuatro con escalera"
+            "name": "ochenta y cuatro con escalera",
+            "createdAt": "2018-02-18T00:51:44.289Z"
         },
         {
             "_id": "5a5e2daad8fdc90014e61802",
             "eights": 6,
-            "name": "carusel"
+            "name": "carusel",
+            "rueda": true,
+            "createdAt": "2018-02-18T00:51:44.299Z"
         },
         {
             "_id": "5a5e2dc7d8fdc90014e61803",
             "eights": 6,
-            "name": "carusel arriba"
+            "name": "carusel arriba",
+            "rueda": true,
+            "createdAt": "2018-02-18T00:51:44.309Z"
         },
         {
             "_id": "5a6006d632234a00149fe64c",
             "eights": 3,
-            "name": "paséala"
+            "name": "paséala",
+            "createdAt": "2018-02-18T00:51:44.319Z"
         },
         {
             "_id": "5a60080532234a00149fe64d",
             "eights": 6,
-            "name": "setenta y cinco"
+            "name": "setenta y cinco",
+            "createdAt": "2018-02-18T00:51:44.329Z"
         },
         {
             "_id": "5a60080e32234a00149fe64e",
             "eights": 5,
-            "name": "doce"
-        },
-        {
-            "_id": "5a6283b2c479d800141fd01a",
-            "eights": 1,
-            "name": "fly"
-        },
-        {
-            "_id": "5a63b16038c4ed001459e419",
-            "eights": 4,
-            "name": "cun cun"
+            "name": "doce",
+            "createdAt": "2018-02-18T00:51:44.340Z"
         },
         {
             "_id": "5a63b17d38c4ed001459e41a",
             "eights": 3,
-            "name": "abrázala"
+            "name": "abrázala",
+            "createdAt": "2018-02-18T00:51:44.350Z"
         },
         {
             "_id": "5a63b1a138c4ed001459e41b",
             "eights": 4,
-            "name": "sombrero doble"
+            "name": "sombrero doble",
+            "createdAt": "2018-02-18T00:51:44.359Z"
         },
         {
             "_id": "5a63b1ca38c4ed001459e41c",
             "eights": 4,
-            "name": "sombrero triple"
+            "name": "sombrero triple",
+            "createdAt": "2018-02-18T00:51:44.370Z"
         },
         {
             "_id": "5a63be8238c4ed001459e41d",
             "eights": 5,
-            "name": "montaña doble"
+            "name": "montaña doble",
+            "createdAt": "2018-02-18T00:51:44.380Z"
+        },
+        {
+            "_id": "5a6283b2c479d800141fd01a",
+            "eights": 1,
+            "name": "fly",
+            "rueda": true,
+            "createdAt": "2018-02-18T00:51:44.390Z"
+        },
+        {
+            "_id": "5a65a9c08c263f0014aaac25",
+            "eights": 3,
+            "name": "hombre al centro",
+            "rueda": true,
+            "createdAt": "2018-02-18T00:51:44.401Z"
+        },
+        {
+            "_id": "5a66b45790562d0014628d6f",
+            "eights": 6,
+            "name": "setenta y seis",
+            "rueda": false,
+            "createdAt": "2018-02-18T00:51:44.411Z"
+        },
+        {
+            "_id": "5a6fe09b75d2990014ab3cd4",
+            "eights": 5,
+            "name": "abanico complicado",
+            "rueda": false,
+            "createdAt": "2018-02-18T00:51:44.421Z"
+        },
+        {
+            "_id": "5a6fe0c475d2990014ab3cd5",
+            "eights": 7,
+            "name": "montaña complicada",
+            "rueda": false,
+            "createdAt": "2018-02-18T00:51:44.431Z"
+        },
+        {
+            "_id": "5a6fe0ff75d2990014ab3cd6",
+            "eights": 1,
+            "name": "siete",
+            "rueda": false,
+            "createdAt": "2018-02-18T00:51:44.442Z"
+        },
+        {
+            "_id": "5a6fe12175d2990014ab3cd7",
+            "eights": 2,
+            "name": "siete con coca cola",
+            "rueda": false,
+            "createdAt": "2018-02-18T00:51:44.452Z"
+        },
+        {
+            "_id": "5a7299a4f620ac00141b40af",
+            "eights": 5,
+            "name": "muñequito",
+            "rueda": false,
+            "createdAt": "2018-02-18T00:51:44.462Z"
+        },
+        {
+            "_id": "5a7299aef620ac00141b40b0",
+            "eights": 3,
+            "name": "cocacola",
+            "rueda": false,
+            "createdAt": "2018-02-18T00:51:44.473Z"
+        },
+        {
+            "_id": "5a7299d1f620ac00141b40b1",
+            "eights": 1,
+            "name": "rolling",
+            "rueda": true,
+            "createdAt": "2018-02-18T00:51:44.483Z"
+        },
+        {
+            "_id": "5a7299dcf620ac00141b40b2",
+            "eights": 1,
+            "name": "línea",
+            "rueda": true,
+            "createdAt": "2018-02-18T00:51:44.493Z"
+        },
+        {
+            "_id": "5a7299f2f620ac00141b40b3",
+            "eights": 3,
+            "name": "tres con tres de reversa",
+            "rueda": true,
+            "createdAt": "2018-02-18T00:51:44.504Z"
+        },
+        {
+            "_id": "5a729ac0f620ac00141b40b4",
+            "eights": 1,
+            "name": "engáñala",
+            "rueda": true,
+            "createdAt": "2018-02-18T00:51:44.514Z"
+        },
+        {
+            "_id": "5a729adbf620ac00141b40b5",
+            "eights": 2,
+            "name": "engáñala de verdad",
+            "rueda": true,
+            "createdAt": "2018-02-18T00:51:44.523Z"
+        },
+        {
+            "_id": "5a729af9f620ac00141b40b6",
+            "eights": 2,
+            "name": "cero",
+            "rueda": true,
+            "createdAt": "2018-02-18T00:51:44.533Z"
+        },
+        {
+            "_id": "5a7a69a1dbd1d90014546dce",
+            "eights": 6,
+            "name": "siete loco",
+            "rueda": false,
+            "createdAt": "2018-02-18T00:51:44.544Z"
+        },
+        {
+            "_id": "5a7bd1236a72960014d0cefc",
+            "eights": 3,
+            "name": "nudo",
+            "rueda": false,
+            "createdAt": "2018-02-18T00:51:44.554Z"
+        },
+        {
+            "_id": "5a7bd1366a72960014d0cefd",
+            "eights": 5,
+            "name": "nudo complicado",
+            "rueda": false,
+            "createdAt": "2018-02-18T00:51:44.564Z"
+        },
+        {
+            "_id": "5a7bd1566a72960014d0cefe",
+            "eights": 5,
+            "name": "helicóptero",
+            "rueda": false,
+            "createdAt": "2018-02-18T00:51:44.575Z"
+        },
+        {
+            "_id": "5a7a7dba68f07a00147e1c13",
+            "eights": 6,
+            "name": "titanic",
+            "rueda": false,
+            "createdAt": "2018-02-18T00:51:44.585Z"
+        },
+        {
+            "_id": "5a63b16038c4ed001459e419",
+            "eights": 4,
+            "name": "cun cun",
+            "createdAt": "2018-02-18T00:51:44.595Z"
+        },
+        {
+            "_id": "5a8260d82e3aac0014eaa93b",
+            "eights": 5,
+            "name": "pasátela por el filo",
+            "rueda": false,
+            "createdAt": "2018-02-18T00:51:44.606Z"
+        },
+        {
+            "_id": "5a82651f2e3aac0014eaa93c",
+            "eights": 5,
+            "name": "tornillo",
+            "rueda": false,
+            "createdAt": "2018-02-18T00:51:44.616Z"
+        },
+        {
+            "_id": "5a83bd5e6eacdf0014e44bfe",
+            "eights": 5,
+            "name": "sombrero nuevo",
+            "rueda": false,
+            "createdAt": "2018-02-18T00:51:44.626Z"
+        },
+        {
+            "_id": "5a84d77459ed7a001445b768",
+            "eights": 5,
+            "name": "tirabuzón",
+            "rueda": false,
+            "createdAt": "2018-02-18T00:51:44.637Z"
+        },
+        {
+            "_id": "5a88be0b0456830014971193",
+            "eights": 7,
+            "name": "ponle sabor",
+            "rueda": false,
+            "createdAt": "2018-02-18T00:51:44.647Z"
         }
     ]
 }

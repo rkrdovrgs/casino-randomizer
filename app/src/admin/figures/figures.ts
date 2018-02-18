@@ -10,10 +10,15 @@ export class Figures {
 
     async activate() {
         this.initNewFigure();
-        this.figures = await this.db.figures.find();
+        this.figures = _.orderBy(
+            await this.db.figures.find(),
+            [f => f.createdAt],
+            ["desc"]
+        );
     }
 
     async addFigure() {
+        this.newFigure.createdAt = new Date();
         let r = await this.db.figures.insert(this.newFigure);
         this.newFigure._id = r._id;
         this.figures.unshift(this.newFigure);

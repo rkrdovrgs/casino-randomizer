@@ -5,4 +5,5 @@ interface IFigure {
     selected?: boolean;
     stats?: number;
     rueda: boolean;
+    createdAt: Date;
 }

@@ -46,8 +46,11 @@ export class DanceAlong {
 
     async activate({ songId }) {
         this.song = await this.db.songs.findById(songId);
-        this.figures = await this.db.figures.find();
-        this.figures = _.sortBy(this.figures, f => (f.rueda || false));
+        this.figures = _.orderBy(
+            await this.db.figures.find(),
+            [f => (f.rueda || false), f => f.createdAt],
+            ["asc", "desc"]
+        );
 
         this.stepInterval = this.song.eigthInterval / 8;
         this.setSettings();
