@@ -134,6 +134,7 @@ export class DanceAlong {
         }
 
         this.stepCounter = 1;
+        this.figureCounter = 0;
         this.stepIntervalId = setInterval(() => {
             if (this.stepCounter >= 8) {
                 this.stepCounter = 0;
@@ -161,11 +162,7 @@ export class DanceAlong {
                     this.currentFigure = selectedFigures[randomFigureIndex];
                     selectedFigures.splice(randomFigureIndex, 1);
 
-                    if (this.fireAndForget) {
-                        let origFigure = this.figures.find(f => f._id === this.currentFigure._id);
-                        origFigure.selected = false;
-                        origFigure.stats = 0;
-                    }
+
 
                     if (this.rueda) {
                         if (this.dameCounter < this.generateRandom(this.maxFigures - 1) + 1) {
@@ -201,6 +198,9 @@ export class DanceAlong {
         // get from localstorage
         let settings: IDanceAlongSettings =
             Object.assign(<IDanceAlongSettings>{
+                random: true,
+                maxWapeas: 3,
+                fireAndForget: false,
                 stepChanger: 7,
                 rueda: false,
                 maxFigures: 1,
@@ -209,10 +209,12 @@ export class DanceAlong {
                     .value()
             }, JSON.parse(localStorage.getItem("settings")));
 
-
         this.stepChanger = settings.stepChanger;
         this.rueda = settings.rueda;
         this.maxFigures = settings.maxFigures;
+        this.maxWapeas = settings.maxWapeas;
+        this.fireAndForget = settings.fireAndForget;
+        this.random = settings.random;
 
         this.figures.forEach(f => {
             f.selected = this.rueda ? !!settings.selectedFigures[f.name] : (!!settings.selectedFigures[f.name] && !f.rueda);
