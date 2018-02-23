@@ -92,7 +92,7 @@ export class DanceAlong {
 
     playStepCounter() {
         this.audioElement.play();
-        this.audioElement.volume = 0.25;
+        this.audioElement.volume = this.song.volume || 0.25;
     }
 
     stopStepCounter() {

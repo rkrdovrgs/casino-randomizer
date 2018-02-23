@@ -4,4 +4,5 @@ interface ISong {
     startDelay: number;
     eigthInterval: number;
     audio: IFile;
+    volume: number;
 }

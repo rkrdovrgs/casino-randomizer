@@ -14,7 +14,8 @@ export class SongDetails {
             this.song = <ISong>{
                 name: "",
                 eigthInterval: 0,
-                startDelay: 0
+                startDelay: 0,
+                volume: 0.25
             };
         } else {
             this.song = await this.db.songs.findById(songId);
