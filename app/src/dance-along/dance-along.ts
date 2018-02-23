@@ -11,6 +11,7 @@ interface IDanceAlongSettings {
     rueda: boolean;
     maxFigures: number;
     random: boolean;
+    fireAndForget: boolean;
 }
 
 @inject(DbService)
@@ -22,7 +23,7 @@ export class DanceAlong {
     stepCounterDisplay: string;
     stepInterval: number;
     stepIntervalId: NodeJS.Timer;
-    currentFigure;
+    currentFigure: IFigure;
     figureCounter: number = 0;
     figureDelay: number = 1;
 
@@ -31,6 +32,7 @@ export class DanceAlong {
     maxFigures: number;
     rueda: boolean;
     random: boolean = true;
+    fireAndForget: boolean;
 
     resetConfig = {
         lastNumberOfFigures: 7,
@@ -100,6 +102,10 @@ export class DanceAlong {
         this.currentFigure = null;
         this.stepCounter = null;
         this.playing = false;
+
+        if (this.fireAndForget) {
+            this.updateSettings();
+        }
     }
 
     restartStepCounter() {
@@ -107,7 +113,7 @@ export class DanceAlong {
         this.playStepCounter();
     }
 
-    getSelectedFigures() {
+    getSelectedFigures(): IFigure[] {
         return _(this.figures)
             .filter(f => f.selected)
             .flatMap(f => Array(f.stats).fill(f))
@@ -155,6 +161,12 @@ export class DanceAlong {
                     this.currentFigure = selectedFigures[randomFigureIndex];
                     selectedFigures.splice(randomFigureIndex, 1);
 
+                    if (this.fireAndForget) {
+                        let origFigure = this.figures.find(f => f._id === this.currentFigure._id);
+                        origFigure.selected = false;
+                        origFigure.stats = 0;
+                    }
+
                     if (this.rueda) {
                         if (this.dameCounter < this.generateRandom(this.maxFigures - 1) + 1) {
                             this.dameCounter += 1;
@@ -189,21 +201,18 @@ export class DanceAlong {
         // get from localstorage
         let settings: IDanceAlongSettings =
             Object.assign(<IDanceAlongSettings>{
-                maxWapeas: 3,
                 stepChanger: 7,
                 rueda: false,
                 maxFigures: 1,
-                random: true,
                 selectedFigures: _(this.figures).keyBy(x => x.name)
                     .mapValues(() => 1)
                     .value()
             }, JSON.parse(localStorage.getItem("settings")));
 
-        this.maxWapeas = settings.maxWapeas;
+
         this.stepChanger = settings.stepChanger;
         this.rueda = settings.rueda;
         this.maxFigures = settings.maxFigures;
-        this.random = settings.random;
 
         this.figures.forEach(f => {
             f.selected = this.rueda ? !!settings.selectedFigures[f.name] : (!!settings.selectedFigures[f.name] && !f.rueda);
@@ -226,6 +235,7 @@ export class DanceAlong {
             stepChanger: this.stepChanger,
             rueda: this.rueda,
             maxFigures: this.maxFigures,
+            fireAndForget: this.fireAndForget,
             selectedFigures: _(this.figures).filter(x => x.selected)
                 .keyBy(x => x.name)
                 .mapValues(x => x.stats || 1)
@@ -234,9 +244,13 @@ export class DanceAlong {
         localStorage.setItem(settingsKey, JSON.stringify(settings));
     }
 
-    resetSettings() {
+    resetSettings(random: boolean = true, fireAndForget: boolean = false, maxWapeas: number = 3) {
         localStorage.removeItem("settings");
         this.setSettings();
+
+        this.random = random;
+        this.fireAndForget = fireAndForget
+        this.maxWapeas = maxWapeas;
     }
 
     resetSettingsForLastFigures(lastNumberOfFigures, incremental, includeAll, practiceLastFigure) {
@@ -268,12 +282,6 @@ export class DanceAlong {
         }
 
         this.updateSettings();
-    }
-
-    resetSettingsForAllInOrder() {
-        this.resetSettings();
-        this.random = false;
-        this.maxWapeas = 1;
     }
 
     setRueda() {
