@@ -33,9 +33,10 @@
     <div if.bind="!playing">
         <hr/>
         <button click.trigger="resetSettingsForLastFigures(5, false, false, true)">New figure</button>
-        <button click.trigger="resetSettingsForLastFigures(7, true, false)">Last 7 Incremental</button>
+        <button click.trigger="resetSettingsForLastFigures(7, true, false)">Last 7 (I)</button>
         <button click.trigger="resetSettingsForLastFigures(10, false, false)">Last 10</button>
-        <button click.trigger="resetSettingsForLastFigures(15, true, true)">Last 15 with All Incremental</button>
+        <button click.trigger="resetSettingsForLastFigures(15, true, true)">Last 15 (AI)</button>
+        <button click.trigger="resetSettingsForAllInOrder()">All In Order</button>
 
         <br/>
         <br/>
@@ -58,6 +59,9 @@
     <div if.bind="!playing">
         <hr/>
         <div class="settings-container">
+            <label>
+                <input type="checkbox" checked.bind="random" change.trigger="updateSettings()" /> Random?
+            </label>
             <label>Notify on:</label>
             <input type="number" value.bind="stepChanger|number" change.trigger="updateSettings()" />
             <br/>

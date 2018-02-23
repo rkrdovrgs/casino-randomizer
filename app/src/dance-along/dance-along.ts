@@ -10,6 +10,7 @@ interface IDanceAlongSettings {
     maxWapeas: number;
     rueda: boolean;
     maxFigures: number;
+    random: boolean;
 }
 
 @inject(DbService)
@@ -29,6 +30,7 @@ export class DanceAlong {
     maxWapeas: number;
     maxFigures: number;
     rueda: boolean;
+    random: boolean = true;
 
     resetConfig = {
         lastNumberOfFigures: 7,
@@ -76,6 +78,10 @@ export class DanceAlong {
                 }
             }, 10);
         };
+
+        this.audioElement.onended = () => {
+            this.stopStepCounter();
+        }
     }
 
     unbind() {
@@ -144,8 +150,8 @@ export class DanceAlong {
                         selectedFigures = this.getSelectedFigures();
                     }
 
-                    let randomFigureIndex = this.generateRandom(selectedFigures.length - 1),
-                        randomWapeas = this.generateRandom(this.maxWapeas);
+                    let randomFigureIndex = this.random ? this.generateRandom(selectedFigures.length - 1) : 0,
+                        randomWapeas = this.random ? this.generateRandom(this.maxWapeas) : this.maxWapeas;
                     this.currentFigure = selectedFigures[randomFigureIndex];
                     selectedFigures.splice(randomFigureIndex, 1);
 
@@ -187,6 +193,7 @@ export class DanceAlong {
                 stepChanger: 7,
                 rueda: false,
                 maxFigures: 1,
+                random: true,
                 selectedFigures: _(this.figures).keyBy(x => x.name)
                     .mapValues(() => 1)
                     .value()
@@ -196,6 +203,7 @@ export class DanceAlong {
         this.stepChanger = settings.stepChanger;
         this.rueda = settings.rueda;
         this.maxFigures = settings.maxFigures;
+        this.random = settings.random;
 
         this.figures.forEach(f => {
             f.selected = this.rueda ? !!settings.selectedFigures[f.name] : (!!settings.selectedFigures[f.name] && !f.rueda);
@@ -213,6 +221,7 @@ export class DanceAlong {
         });
 
         let settings: IDanceAlongSettings = {
+            random: this.random,
             maxWapeas: this.maxWapeas,
             stepChanger: this.stepChanger,
             rueda: this.rueda,
@@ -259,6 +268,12 @@ export class DanceAlong {
         }
 
         this.updateSettings();
+    }
+
+    resetSettingsForAllInOrder() {
+        this.resetSettings();
+        this.random = false;
+        this.maxWapeas = 1;
     }
 
     setRueda() {
