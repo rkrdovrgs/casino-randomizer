@@ -160,9 +160,6 @@ export class DanceAlong {
                     let randomFigureIndex = this.random ? this.generateRandom(selectedFigures.length - 1) : 0,
                         randomWapeas = this.random ? this.generateRandom(this.maxWapeas) : this.maxWapeas;
                     this.currentFigure = selectedFigures[randomFigureIndex];
-                    selectedFigures.splice(randomFigureIndex, 1);
-
-
 
                     if (this.rueda) {
                         if (this.dameCounter < this.generateRandom(this.maxFigures - 1) + 1) {
@@ -170,6 +167,15 @@ export class DanceAlong {
                         } else {
                             this.dameCounter = 0;
                             this.currentFigure = this.dame;
+                        }
+                    }
+
+                    if (this.currentFigure.name !== this.dame.name) {
+                        selectedFigures.splice(randomFigureIndex, 1);
+                        if (this.fireAndForget) {
+                            let origFigure = this.figures.find(f => f._id === this.currentFigure._id);
+                            origFigure.selected = false;
+                            origFigure.stats = 0;
                         }
                     }
 
