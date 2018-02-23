@@ -256,7 +256,8 @@ export class DanceAlong {
     resetSettingsForLastFigures(lastNumberOfFigures, incremental, includeAll, practiceLastFigure) {
         this.resetSettings();
         let figures = this.figures.filter(f => !f.rueda),
-            startIncremental = includeAll ? figures.length : lastNumberOfFigures;
+            startIncremental = includeAll ? figures.length : lastNumberOfFigures,
+            decreaseBy = includeAll ? Math.floor(startIncremental / lastNumberOfFigures) : 1;
 
         figures
             .map(f => {
@@ -273,7 +274,7 @@ export class DanceAlong {
                     f.stats = includeAll ? figures.length : 1;
                 } else {
                     f.stats = startIncremental;
-                    startIncremental--;
+                    startIncremental -= decreaseBy;
                 }
             });
 
