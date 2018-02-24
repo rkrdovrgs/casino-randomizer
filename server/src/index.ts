@@ -23,7 +23,7 @@ app.use(require("./db/middleware"));
 app.use((req, res) => res.sendFile(path.join(__dirname, "../../app/index.html")));
 
 // Syncronyze database
-// seed.sync();
+seed.sync();
 //
 app.listen(port, function () {
     // tslint:disable-next-line:no-console
