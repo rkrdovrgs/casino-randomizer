@@ -35,23 +35,6 @@
             }
         },
         {
-            "_id": "5a5eac0e9613b300149782e8",
-            "name": "(not ready) DLG - No Morira",
-            "eigthInterval": 2925,
-            "startDelay": 12000,
-            "audio": {
-                "fieldname": "files",
-                "originalname": "No Morirá - DLG.mp3",
-                "encoding": "7bit",
-                "mimetype": "audio/mp3",
-                "destination": "__files__/",
-                "filename": "39cb85c10dd0aaf7efea5b9d68c96ce2",
-                "path": "__files__/39cb85c10dd0aaf7efea5b9d68c96ce2",
-                "size": 6536601,
-                "_id": "5a2cb1c1796d5d52a16955cd"
-            }
-        },
-        {
             "_id": "5a5eac0e9613b300149782e9",
             "name": "(not ready) DLG - Muevete",
             "eigthInterval": 2510,
@@ -87,7 +70,7 @@
         },
         {
             "_id": "5a5eac0e9613b300149782eb",
-            "name": "07 - Luis Enrique - Yo Voy Pa Encima",
+            "name": "09 - Luis Enrique - Yo Voy Pa Encima",
             "eigthInterval": 2335,
             "startDelay": 5922,
             "audio": {
@@ -121,9 +104,9 @@
         },
         {
             "_id": "5a5eac0e9613b300149782ed",
-            "name": "(not ready) Fredyclan - Yo Vengo de Cuba",
-            "eigthInterval": 3000,
-            "startDelay": 1000,
+            "name": "07 - Fredyclan - Yo Vengo de Cuba",
+            "eigthInterval": 2380,
+            "startDelay": 10175,
             "audio": {
                 "fieldname": "files",
                 "originalname": "Fredyclan - Yo Vengo de Cuba.mp3",
@@ -155,9 +138,9 @@
         },
         {
             "_id": "5a5eac0e9613b300149782ef",
-            "name": "(not ready) Remeneate",
-            "eigthInterval": 3000,
-            "startDelay": 1000,
+            "name": "08 - Remeneate",
+            "eigthInterval": 2401,
+            "startDelay": 3645,
             "audio": {
                 "fieldname": "files",
                 "originalname": "Remeneate.mp3",
@@ -202,7 +185,8 @@
                 "path": "__files__/71cbac2456a6cc4d261c6bef1cf430e9",
                 "size": 6588636,
                 "_id": "5a88d04838200c1b852b0ab4"
-            }
+            },
+            "volume": 0.75
         },
         {
             "_id": "5a88d06e38200c1b852b0ab7",
@@ -219,24 +203,8 @@
                 "path": "__files__/8e41a9c6dd1ccdfc8ee12b60ee51a31a",
                 "size": 6709635,
                 "_id": "5a88d06e38200c1b852b0ab6"
-            }
-        },
-        {
-            "_id": "5a88d08738200c1b852b0ab9",
-            "name": "(not ready) Luis Enrique - Te amo",
-            "eigthInterval": 1000,
-            "startDelay": 1000,
-            "audio": {
-                "fieldname": "files",
-                "originalname": "Luis Enrique - Te amo - JUKEBOX.mp3",
-                "encoding": "7bit",
-                "mimetype": "audio/mp3",
-                "destination": "__files__/",
-                "filename": "451c1e685146ed9a5e08aed98819d8df",
-                "path": "__files__/451c1e685146ed9a5e08aed98819d8df",
-                "size": 6051977,
-                "_id": "5a88d08738200c1b852b0ab8"
-            }
+            },
+            "volume": 0.75
         }
     ],
     "files": [],
@@ -691,6 +659,20 @@
             "name": "paséala y complícate",
             "rueda": false,
             "createdAt": "2018-02-22T00:11:49.903Z"
+        },
+        {
+            "_id": "5a8f6bd2b61e2000143e4f25",
+            "eights": 7,
+            "name": "el zorro",
+            "rueda": false,
+            "createdAt": "2018-02-23T01:18:10.016Z"
+        },
+        {
+            "_id": "5a90a89d091e6600147cc7fa",
+            "eights": 5,
+            "name": "setenta nuevo",
+            "rueda": false,
+            "createdAt": "2018-02-23T23:49:48.281Z"
         }
     ]
 }
