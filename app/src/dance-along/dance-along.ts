@@ -95,13 +95,15 @@ export class DanceAlong {
         this.audioElement.volume = this.song.volume || 0.25;
     }
 
-    stopStepCounter() {
+    stopStepCounter(stopSong: boolean = true) {
         clearTimeout(this.stepIntervalId);
-        this.audioElement.pause();
-        this.audioElement.currentTime = 0;
+        if (stopSong) {
+            this.audioElement.pause();
+            this.audioElement.currentTime = 0;
+            this.playing = false;
+        }
         this.currentFigure = null;
         this.stepCounter = null;
-        this.playing = false;
 
         if (this.fireAndForget) {
             this.updateSettings();
@@ -155,6 +157,12 @@ export class DanceAlong {
                 if (this.figureCounter <= 1) {
                     if (!selectedFigures.length) {
                         selectedFigures = this.getSelectedFigures();
+
+                        // when fire and forget is enabled, this won't repopulate and will be empty
+                        if (!selectedFigures.length) {
+                            this.stopStepCounter(false);
+                            VoiceHelpers.readOutloud("No hay mas figuras", this.voice);
+                        }
                     }
 
                     let randomFigureIndex = this.random ? this.generateRandom(selectedFigures.length - 1) : 0,
