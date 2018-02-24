@@ -10,7 +10,11 @@ export class Home {
     constructor(private db: DbService, private fileService: FileService) { }
 
     async activate() {
-        this.songs = _.orderBy(await this.db.songs.find(), s => s.name, "desc");
+        this.songs = _.orderBy(
+            await this.db.songs.find(),
+            [s => s.name.startsWith("(not ready)"), s => s.eigthInterval],
+            ["asc", "desc"]
+        );
     }
 }
 

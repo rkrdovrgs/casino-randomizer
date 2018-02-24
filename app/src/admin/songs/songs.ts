@@ -10,7 +10,11 @@ export class Songs {
     constructor(private db: DbService, private fileService: FileService) { }
 
     async activate() {
-        this.songs = _.sortBy(await this.db.songs.find(), s => s.eigthInterval);
+        this.songs = _.orderBy(
+            await this.db.songs.find(),
+            [s => s.name.startsWith("(not ready)"), s => s.eigthInterval],
+            ["asc", "desc"]
+        );
     }
 
     async removeSong(index, id) {
