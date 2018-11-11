@@ -43,7 +43,7 @@
         elementId: "admin-song-details"
     },
     {
-        route: "admin/figures",
+        route: "admin/figures/:style",
         moduleId: "admin/figures/figures",
         title: "Figures",
         elementId: "admin-figures",

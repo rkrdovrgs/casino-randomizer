@@ -6,4 +6,5 @@ interface IFigure {
     stats?: number;
     rueda: boolean;
     createdAt: Date;
+    style: string;
 }

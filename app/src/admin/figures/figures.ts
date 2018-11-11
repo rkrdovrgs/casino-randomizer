@@ -2,20 +2,23 @@ import { inject } from "aurelia-framework";
 import { DbService } from "dataservices/db-service";
 import * as _ from "lodash";
 
+const DefaultStyle = "casino";
+
 @inject(DbService)
 export class Figures {
     figures: IFigure[] = [];
     newFigure = <IFigure>{};
+    style: string;
 
     constructor(private db: DbService) { }
 
-    async activate() {
+    async activate(params: { style: string }) {
+        this.style = params.style;
         this.initNewFigure();
-        this.figures = _.orderBy(
-            await this.db.figures.find(),
-            [f => f.createdAt],
-            ["desc"]
-        );
+        this.figures = _(await this.db.figures.find())
+            .filter(f => (f.style || DefaultStyle) === this.style)
+            .orderBy([f => f.createdAt], ["desc"])
+            .value();
     }
 
     async addFigure() {
@@ -39,7 +42,8 @@ export class Figures {
         this.newFigure = <IFigure>{
             eights: 0,
             name: "",
-            rueda: false
+            rueda: false,
+            style: this.style
         };
     }
 }

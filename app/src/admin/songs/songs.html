@@ -1,16 +1,20 @@
 <template>
     <require from="admin/songs/songs.css"></require>
     <div class="nav-container">
-        <a route-href="route:admin-figures">
+        <a route-href="route:admin-figures;params.bind:{style:'casino'}">
             <i class="fa fa-list"></i>
-            Figures
+            Casino Figures
+        </a>
+        <a route-href="route:admin-figures;params.bind:{style:'la'}">
+            <i class="fa fa-list"></i>
+            LA Figures
         </a>
         <a route-href="route:admin-song-create">
             <i class="fa fa-plus"></i>
             Add Song
         </a>
     </div>
-    <hr/>
+    <hr />
     <h1>Songs</h1>
     <div class="row" repeat.for="s of songs">
         <div class="col col-md-12">

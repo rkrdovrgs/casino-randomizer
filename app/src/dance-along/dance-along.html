@@ -4,11 +4,12 @@
         <i class="fa fa-list"></i>
         Playlist
     </a>
-    <hr/>
+    <hr />
     <h1>${song.name}</h1>
-    <hr/>
+    <hr />
     <audio ref="audioElement" preload="auto">
-        <source src="/api/files/${song.audio.filename}" type="audio/mpeg"> Your browser does not support the audio element.
+        <source src="/api/files/${song.audio.filename}" type="audio/mpeg"> Your browser does not support the audio
+        element.
     </audio>
     <div class="display-container">
         <div>
@@ -31,7 +32,7 @@
         </div>
     </div>
     <div if.bind="!playing">
-        <hr/>
+        <hr />
         <button click.trigger="resetSettingsForLastFigures(5, false, false, true)">New figure</button>
         <button click.trigger="resetSettingsForLastFigures(7, true, false)">Last 7 (I)</button>
         <button click.trigger="resetSettingsForLastFigures(10, false, false)">Last 10</button>
@@ -39,16 +40,17 @@
         <button click.trigger="resetSettings(true, true)">All Random</button>
         <button click.trigger="resetSettings(false, true, 1)">All In Order</button>
 
-        <br/>
-        <br/>
+        <br />
+        <br />
 
         <button click.trigger="resetSettings()">Reset All</button>
-        <button click.trigger="resetSettingsForLastFigures(resetConfig.lastNumberOfFigures, resetConfig.incremental, resetConfig.includeAll)">Reset Last</button>
-        <br/>
+        <button click.trigger="resetSettingsForLastFigures(resetConfig.lastNumberOfFigures, resetConfig.incremental, resetConfig.includeAll)">Reset
+            Last</button>
+        <br />
         <div class="settings-container">
             <label>Last:</label>
             <input type="number" value.bind="resetConfig.lastNumberOfFigures|number" />
-            <br/>
+            <br />
             <label>
                 <input type="checkbox" checked.bind="resetConfig.incremental" /> Incremental?
             </label>
@@ -58,34 +60,39 @@
         </div>
     </div>
     <div if.bind="!playing">
-        <hr/>
+        <hr />
         <div class="settings-container">
             <label>
                 <input type="checkbox" checked.bind="random" change.trigger="updateSettings()" /> Random?
             </label>
             <label>
-                <input type="checkbox" checked.bind="fireAndForget" change.trigger="updateSettings()" /> Fire and forget?
+                <input type="checkbox" checked.bind="fireAndForget" change.trigger="updateSettings()" /> Fire and
+                forget?
             </label>
             <label>Notify on:</label>
             <input type="number" value.bind="stepChanger|number" change.trigger="updateSettings()" />
-            <br/>
+            <br />
             <label>Max number of wapeas between figures:</label>
             <input type="number" value.bind="maxWapeas|number" change.trigger="updateSettings()" />
-            <br/>
+            <br />
             <label>
                 <input type="checkbox" checked.bind="rueda" change.trigger="setRueda()" /> Rueda?
             </label>
             <label if.bind="rueda">Max number of figures between "dame":</label>
             <input type="number" value.bind="maxFigures|number" change.trigger="updateSettings()" if.bind="rueda" />
-            <br/>
-            <hr/>
+            <br />
+            <hr />
         </div>
 
-        <b>Include:</b>
+        <b>Include:</b><br />
+
         <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                <button class="btn btn-link">All</button> | <button class="btn btn-link">None</button>
+            </div>
             <div repeat.for="f of figures" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                <input class="figure-stats" type="number" value.bind="f.stats|number" disabled.bind="!f.selected" change.trigger="updateSettings()"
-                />
+                <input class="figure-stats" type="number" value.bind="f.stats|number" disabled.bind="!f.selected"
+                    change.trigger="updateSettings()" />
                 <label>
                     <input type="checkbox" checked.bind="f.selected" change.trigger="updateSettings()" disabled.bind="!rueda && f.rueda" />${f.name}
                 </label>
