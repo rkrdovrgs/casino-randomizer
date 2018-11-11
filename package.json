@@ -4,6 +4,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "server/dist/index.js",
+  "engines": {
+    "node": "8.11.3",
+    "yarn": "1.9.4",
+    "npm": "6.3.0"
+  },
   "scripts": {
     "start:dev": "yarn run clean && concurrently \"yarn run app:w\" \"yarn run server:w\" \"yarn run lint:w\" ",
     "clean": "del-cli app/dist && del-cli app/src/main.js && del-cli server/dist",
@@ -15,7 +20,7 @@
     "server:w": "nodemon -w ./server/src -e ts -x yarn run server",
     "compile:app": "au build --env prod",
     "compile:server": "tsc --project ./server/tsconfig.json && cpx \"server/src/**/*.json\" server/dist",
-    "postinstall": "npm run clean && npm run compile:server && npm run compile:app",
+    "postinstall": "yarn run clean && yarn run compile:server && yarn run compile:app",
     "start": "node server/dist/index.js"
   },
   "repository": {
