@@ -18,7 +18,7 @@
     "app:w": "au build --watch",
     "server": "ts-node --project ./server/tsconfig.json ./server/src",
     "server:w": "nodemon -w ./server/src -e ts -x yarn run server",
-    "compile:app": "au build --env prod",
+    "compile:app": "au build",
     "compile:server": "tsc --project ./server/tsconfig.json && cpx \"server/src/**/*.json\" server/dist",
     "postinstall": "yarn run clean && yarn run compile:server && yarn run compile:app",
     "start": "node server/dist/index.js"
