@@ -5,9 +5,9 @@
   "description": "",
   "main": "server/dist/index.js",
   "engines": {
-    "node": "8.11.3",
-    "yarn": "1.9.4",
-    "npm": "6.3.0"
+    "node": "8.12.0",
+    "yarn": "1.12.3",
+    "npm": "6.4.1"
   },
   "scripts": {
     "start:dev": "yarn run clean && concurrently \"yarn run app:w\" \"yarn run server:w\" \"yarn run lint:w\" ",
@@ -35,7 +35,7 @@
   },
   "homepage": "https://github.com/rkrdovrgs/boats-api#readme",
   "dependencies": {
-    "au-base": "1.40.0",
+    "au-base": "1.44.0",
     "del-cli": "^1.1.0"
   }
 }
